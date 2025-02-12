@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>com.yawl.ma-template</id>
+
+    <name>Modern Android Template</name>
+
+    <vendor>Yawl</vendor>
+
+    <description><![CDATA[
+    <p>Modern Android App Template: Kickstart your development!</p>
+  ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="com.yawl.matemplate.AndroidStudioTemplateProvider"/>
+    </extensions>
+</idea-plugin>
