@@ -5,10 +5,10 @@ import java.io.File
 
 fun RecipeExecutor.createSourcesDirectory(
     parentDirectory: File,
+    putContent: (directory: File) -> Unit = {}
 ) {
-    val conventionDirectory = "src/main/kotlin/com/convention"
-    createDirectory(
-        at = parentDirectory
-            .resolve(relative = conventionDirectory)
-    )
+    val directory = parentDirectory
+        .resolve("src/main/kotlin/com/convention")
+    createDirectory(at = directory)
+    putContent(directory)
 }

@@ -10,6 +10,9 @@ fun RecipeExecutor.kotlinConventionWriter(
     createModule(
         parentDirectory = parentDirectory,
         moduleName = "kotlin",
-        buildGradleSource = kotlinBuildGradle()
+        buildGradleSource = kotlinBuildGradle(),
+        content = { directory ->
+
+        }
     )
 }

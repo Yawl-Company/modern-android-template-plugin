@@ -10,6 +10,9 @@ fun RecipeExecutor.androidConventionWriter(
     createModule(
         parentDirectory = parentDirectory,
         moduleName = "android",
-        buildGradleSource = androidBuildGradle()
+        buildGradleSource = androidBuildGradle(),
+        content = { directory ->
+
+        }
     )
 }

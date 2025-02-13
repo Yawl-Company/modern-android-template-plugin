@@ -7,7 +7,8 @@ import java.io.File
 fun RecipeExecutor.createModule(
     parentDirectory: File,
     moduleName: String,
-    buildGradleSource: String
+    buildGradleSource: String,
+    content: (directory: File) -> Unit = {},
 ) {
     conventionModuleWriter(
         parentDirectory = parentDirectory,
@@ -16,6 +17,7 @@ fun RecipeExecutor.createModule(
     )
     createSourcesDirectory(
         parentDirectory = parentDirectory
-            .resolve(moduleName)
+            .resolve(moduleName),
+        putContent = content
     )
 }
