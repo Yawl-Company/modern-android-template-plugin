@@ -4,7 +4,7 @@ import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.modern.core.rewriteFile
 
-fun RecipeExecutor.appBuild(
+fun RecipeExecutor.appCoreWriter(
     moduleData: ModuleTemplateData
 ) {
     val projectData = moduleData.projectTemplateData

@@ -1,18 +1,16 @@
 package com.yawl.android.template.modern.buildLogic
 
-import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.modern.buildLogic.android.androidConventionWriter
 import com.yawl.android.template.modern.buildLogic.gradleExtension.gradleConventionWriter
 import com.yawl.android.template.modern.buildLogic.kotlin.kotlinConventionWriter
 import com.yawl.android.template.modern.buildLogic.signing.signingConventionWriter
 import com.yawl.android.template.modern.buildLogic.test.testConventionWriter
+import java.io.File
 
 fun RecipeExecutor.buildLogicWriter(
-    moduleData: ModuleTemplateData
+    rootDir: File
 ) {
-    val projectData = moduleData.projectTemplateData
-    val rootDir = projectData.rootDir
     val moduleName = "build-logic"
     val moduleDirectory = rootDir.resolve(moduleName)
     save(
