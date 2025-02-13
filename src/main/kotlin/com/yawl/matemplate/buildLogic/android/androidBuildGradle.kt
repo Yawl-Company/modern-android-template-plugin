@@ -33,7 +33,7 @@ internal fun androidBuildGradle(): String {
 
                 create("android-compose") {
                     id = "convention.android-compose"
-                    implementationClass = "com.convention.compose.AndroidComposeConventionPlugin"
+                    implementationClass = "com.convention.AndroidComposeConventionPlugin"
                 }
 
                 create("hilt") {
