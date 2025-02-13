@@ -21,7 +21,7 @@ fun libsToml(): String {
     return """
         [versions]
         # build core
-        agp = "8.2.0"
+        agp = "8.7.3"
         java = "17"
         kotlin = "2.1.0"
         kotlinLanguageVersion = "1.9"
@@ -41,9 +41,9 @@ fun libsToml(): String {
 
         # compose
         activityCompose = "1.10.0"
-        composeBom = "2025.01.01"
+        composeBom = "2025.02.00"
         androidxComposeCompiler = "1.5.12"
-        androidxComposeNavigation = "2.8.6"
+        androidxComposeNavigation = "2.8.7"
 
         # android-ktx
         coreKtx = "1.15.0"
