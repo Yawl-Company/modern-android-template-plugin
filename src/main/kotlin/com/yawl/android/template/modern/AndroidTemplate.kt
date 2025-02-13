@@ -7,7 +7,9 @@ import java.io.File
 val modernAndroidTemplate
     get() = template {
         name = "Modern Android Template"
-        description = "Stub"
+
+        description = "Kickstart your development"
+
         minApi = 24
 
         constraints = listOf(
