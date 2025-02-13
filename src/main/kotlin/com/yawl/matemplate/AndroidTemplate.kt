@@ -37,8 +37,7 @@ val modernAndroidTemplate
 
         recipe = { data: TemplateData ->
             modernAndroidRecipe(
-                moduleData = data as ModuleTemplateData,
-                packageName = packageName.value,
+                moduleData = data as ModuleTemplateData
             )
         }
     }
