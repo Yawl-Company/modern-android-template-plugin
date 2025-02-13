@@ -7,4 +7,4 @@ pluginManagement {
 
 includeBuild("libraries")
 
-rootProject.name = "ma-template"
+rootProject.name = "android-template"
