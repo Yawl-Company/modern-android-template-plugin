@@ -1,13 +1,13 @@
 package com.yawl.matemplate.buildLogic.signing
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.matemplate.core.conventionModuleWriter
+import com.yawl.matemplate.buildLogic.createModule
 import java.io.File
 
 fun RecipeExecutor.signingConventionWriter(
     parentDirectory: File
 ) {
-    conventionModuleWriter(
+    createModule(
         parentDirectory = parentDirectory,
         moduleName = "signing",
         buildGradleSource = signingBuildGradle()
