@@ -5,4 +5,6 @@ pluginManagement {
     }
 }
 
+includeBuild("libraries")
+
 rootProject.name = "ma-template"
