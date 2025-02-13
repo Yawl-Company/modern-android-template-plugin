@@ -21,7 +21,7 @@ fun libsToml(): String {
     return """
         [versions]
         # build core
-        agp = "8.7.3"
+        agp = "8.2.0"
         java = "17"
         kotlin = "2.1.0"
         kotlinLanguageVersion = "1.9"
