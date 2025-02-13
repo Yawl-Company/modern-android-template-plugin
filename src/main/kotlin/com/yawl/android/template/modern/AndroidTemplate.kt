@@ -23,13 +23,26 @@ val modernAndroidTemplate
         formFactor = FormFactor.Mobile
 
         screens = listOf(
-            WizardUiContext.NewProject
+            WizardUiContext.NewProject,
+            WizardUiContext.NewProjectExtraDetail
         )
 
         val packageName = defaultPackageNameParameter
 
+        val useRoom = booleanParameter {
+            name = "Add Room support"
+            default = true
+        }
+
+        val useHilt = booleanParameter {
+            name = "Use Hilt support"
+            default = true
+        }
+
         widgets(
             PackageNameWidget(packageName),
+            CheckBoxWidget(useRoom),
+            CheckBoxWidget(useHilt),
         )
 
         thumb {
