@@ -14,7 +14,8 @@ val modernAndroidTemplate
 
         constraints = listOf(
             TemplateConstraint.AndroidX,
-            TemplateConstraint.Kotlin
+            TemplateConstraint.Kotlin,
+            TemplateConstraint.Compose
         )
 
         category = Category.Application
