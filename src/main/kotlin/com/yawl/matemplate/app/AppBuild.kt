@@ -9,7 +9,8 @@ fun RecipeExecutor.appBuild(
 ) {
     val projectData = moduleData.projectTemplateData
     val rootDir = projectData.rootDir
-    val packageName = rootDir.name
+    val projectName = rootDir.name
+    val packageName = moduleData.packageName
     rewriteFile(
         source = rootDir
             .resolve("build.gradle.kts"),
@@ -19,7 +20,14 @@ fun RecipeExecutor.appBuild(
         source = rootDir
             .resolve("settings.gradle.kts"),
         content = packageSettingsGradleKts(
-            projectName = packageName
+            projectName = projectName
+        )
+    )
+    rewriteFile(
+        source = rootDir
+            .resolve("app/build.gradle.kts"),
+        content = appSrcBuildGradleKts(
+            packageName = packageName
         )
     )
 }
