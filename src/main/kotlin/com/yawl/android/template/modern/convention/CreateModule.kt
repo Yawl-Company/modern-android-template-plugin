@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.convention
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.write.conventionModuleWriter
+import com.yawl.android.template.core.write.buildGradleKtsWriter
 import java.io.File
 
 fun RecipeExecutor.createModule(
@@ -10,10 +10,15 @@ fun RecipeExecutor.createModule(
     buildGradleSource: String,
     content: (directory: File) -> Unit = {},
 ) {
-    conventionModuleWriter(
-        parentDirectory = parentDirectory,
-        moduleName = moduleName,
-        buildGradleSource = buildGradleSource
+    val directory = parentDirectory
+        .resolve(moduleName)
+    createDirectory(
+        at = directory
+    )
+    buildGradleKtsWriter(
+        directory = directory,
+        content = buildGradleSource,
+        force = false
     )
     createSourcesDirectory(
         parentDirectory = parentDirectory
