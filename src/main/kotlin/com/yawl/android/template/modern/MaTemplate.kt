@@ -19,9 +19,9 @@ class MaTemplate(
 
     override fun libraries(): LibsToml {
         return LibsToml(
-            versions = emptyList(),
-            plugins = emptyList(),
-            libraries = emptyList()
+            versions = modernAndroidVersions(),
+            plugins = modernAndroidPlugins(),
+            libraries = modernAndroidLibraries()
         )
     }
 }
