@@ -30,19 +30,25 @@ val modernAndroidTemplate
         val packageName = defaultPackageNameParameter
 
         val useRoom = booleanParameter {
-            name = "Add Room support"
-            default = true
+            name = "Use Room"
+            default = false
         }
 
         val useHilt = booleanParameter {
-            name = "Use Hilt support"
-            default = true
+            name = "Use Hilt"
+            default = false
+        }
+
+        val useGradleSecrets = booleanParameter {
+            name = "Use Gradle Secrets"
+            default = false
         }
 
         widgets(
             PackageNameWidget(packageName),
             CheckBoxWidget(useRoom),
             CheckBoxWidget(useHilt),
+            CheckBoxWidget(useGradleSecrets)
         )
 
         thumb {
@@ -56,7 +62,8 @@ val modernAndroidTemplate
                 template = MaTemplate(
                     moduleData = data as ModuleTemplateData,
                     hilt = useHilt.value,
-                    room = useRoom.value
+                    room = useRoom.value,
+                    gradleSecrets = useGradleSecrets.value
                 ),
             )
         }

@@ -10,7 +10,7 @@ fun maTemplatePlugins(template: IMaTemplate) =
         Plugin("kotlin.compose"),
         Plugin("ksp"),
         Plugin("kotlin.serialization"),
-        Plugin("gradle.secrets"),
+        template.gradleSecrets().takeIf { it }?.let { Plugin("gradle.secrets") },
         template.hilt().takeIf { it }?.let { Plugin("hilt") },
-        template.room().takeIf { it }?.let { Plugin("room") }
+        template.room().takeIf { it }?.let { Plugin("room") },
     )
