@@ -4,7 +4,7 @@ class LibsToml(
     val versions: List<Version>,
     val libraries: List<Library>,
     val plugins: List<Plugin>,
-): LibsTomlDeclaratable {
+) : Declaratable {
     override fun declaration(): String {
         return buildString {
             append("[versions]")
@@ -21,53 +21,87 @@ class LibsToml(
 }
 
 data class Plugin(
-    private val alias: LibsTomlAlias,
+    private val toml: LibsVersionsTomlName,
     private val id: String,
     private val version: Version
-): LibsTomlDeclaratable {
+) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val pluginAlias = alias.value
-        val pluginDescription = "{ id = \"$id\", version.ref = \"${version.name}\" }"
+        val pluginAlias = alias()
+        val versionAlias = version.alias()
+        val pluginDescription = "{ id = \"$id\", version.ref = \"$versionAlias\" }"
         return "$pluginAlias = $pluginDescription"
+    }
+
+    override fun alias(): String {
+        return "libs.plugins.${toml.alias()}"
     }
 }
 
 data class Library(
-    private val alias: LibsTomlAlias,
+    private val toml: LibsVersionsTomlName,
     private val group: String,
     private val name: String,
     private val version: Version
-): LibsTomlDeclaratable {
+) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val libraryAlias = alias.value
-        val libraryDescription = "{ group = \"$group\", name = \"$name\", version.ref = \"${version.name}\" }"
-        return "$libraryAlias = $libraryDescription"
+        val libraryName = toml.name()
+        val versionName = version.name()
+        val libraryDescription = "{ group = \"$group\", name = \"$name\", version.ref = \"$versionName\" }"
+        return "$libraryName = $libraryDescription"
+    }
+
+    override fun alias(): String {
+        throw IllegalStateException("No alias for library")
     }
 }
 
-data class LibsTomlAlias(
-    val value: String
-) {
+data class Version(
+    private val name: LibsVersionsTomlName,
+    private val value: String
+) : Nameable, Declaratable, Aliasable {
+    override fun name(): String {
+        return name.name()
+    }
+
+    override fun declaration(): String {
+        return "$name = \"$value\""
+    }
+
+    override fun alias(): String {
+        return "libs.versions.${name.alias()}"
+    }
+}
+
+data class LibsVersionsTomlName(
+    private val value: String
+) : Nameable, Declaratable, Aliasable {
     init {
         require(value.matches(Regex("^[a-z]+(-[a-z]+)+$"))) {
             "Invalid alias format"
         }
     }
 
-    override fun toString(): String {
+    override fun name(): String {
+        return value
+    }
+
+    override fun declaration(): String {
+        return value
+    }
+
+    override fun alias(): String {
         return value.replace("-", ".")
     }
 }
 
-data class Version(
-    val name: String,
-    val value: String
-): LibsTomlDeclaratable {
-    override fun declaration(): String {
-        return "$name = \"$value\""
-    }
+interface Declaratable {
+    fun declaration(): String
 }
 
-interface LibsTomlDeclaratable {
-    fun declaration(): String
+interface Aliasable {
+    fun alias(): String
+}
+
+interface Nameable {
+    fun name(): String
 }
