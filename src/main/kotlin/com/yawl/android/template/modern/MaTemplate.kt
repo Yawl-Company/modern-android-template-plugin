@@ -12,4 +12,9 @@ data class MaTemplate(
         .projectTemplateData
         .rootDir
 
+    fun sources(): File = moduleData
+        .srcDir
+
+    fun packageName(): String = moduleData
+        .packageName
 }

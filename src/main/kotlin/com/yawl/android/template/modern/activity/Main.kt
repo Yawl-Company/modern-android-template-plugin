@@ -5,13 +5,13 @@ import com.yawl.android.template.modern.MaTemplate
 import com.yawl.android.template.modern.activity.content.mainActivity
 
 fun RecipeExecutor.appModuleWriter(
-    template: MaTemplate,
+    template: MaTemplate
 ) {
-    val module = template.moduleData
-    val (_, srcOut) = module
-    val packageName = module.packageName
-    val activityPath = srcOut
+    val activityPath = template
+        .sources()
         .resolve("MainActivity.kt")
+    val packageName = template
+        .packageName()
     save(
         source = mainActivity(
             packageName = packageName
