@@ -1,6 +1,8 @@
-package com.yawl.android.template.core
+package com.yawl.android.template.core.write
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.core.AndroidTemplate
+import com.yawl.android.template.core.saveFile
 
 fun RecipeExecutor.libsVersionsTomlWriter(
     template: AndroidTemplate,
