@@ -3,6 +3,9 @@ package com.yawl.android.template.modern.app
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.saveFile
 import com.yawl.android.template.modern.MaTemplate
+import com.yawl.android.template.modern.app.content.appSrcBuildGradleKts
+import com.yawl.android.template.modern.app.content.packageGradleKts
+import com.yawl.android.template.modern.app.content.packageSettingsGradleKts
 
 fun RecipeExecutor.appCoreWriter(
     template: MaTemplate
