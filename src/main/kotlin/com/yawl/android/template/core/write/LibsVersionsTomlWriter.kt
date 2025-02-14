@@ -5,8 +5,7 @@ import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.extension.saveFile
 
 fun RecipeExecutor.libsVersionsTomlWriter(
-    template: AndroidTemplate,
-    content: String
+    template: AndroidTemplate
 ) {
     val moduleName = "gradle"
     val gradleDir = template
@@ -15,7 +14,9 @@ fun RecipeExecutor.libsVersionsTomlWriter(
     saveFile(
         source = gradleDir
             .resolve("libs.versions.toml"),
-        content = content,
+        content = template
+            .libraries()
+            .declaration(),
         force = true
     )
 }
