@@ -1,15 +1,15 @@
 package com.yawl.android.template.modern.project
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.saveFile
-import com.yawl.android.template.modern.MaTemplate
 import com.yawl.android.template.modern.project.content.projectGradleKts
 import com.yawl.android.template.modern.project.content.projectSettingsGradleKts
 
 fun RecipeExecutor.projectWriter(
-    template: MaTemplate
+    template: AndroidTemplate
 ) {
-    val root = template.root()
+    val root = template.projectRoot()
     val projectName = template.projectName()
     saveFile(
         source = root.resolve(

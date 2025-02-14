@@ -1,20 +1,20 @@
 package com.yawl.android.template.modern.activity
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.saveFile
-import com.yawl.android.template.modern.MaTemplate
 import com.yawl.android.template.modern.activity.content.mainActivity
 import com.yawl.android.template.modern.activity.content.appSrcBuildGradleKts
 
 fun RecipeExecutor.appModuleWriter(
-    template: MaTemplate
+    template: AndroidTemplate
 ) {
     val root = template
-        .root()
+        .projectRoot()
     val packageName = template
         .packageName()
     val activityPath = template
-        .sources()
+        .sourcesRoot()
         .resolve("MainActivity.kt")
     saveFile(
         source = root.resolve(

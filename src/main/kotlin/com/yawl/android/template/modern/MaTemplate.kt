@@ -1,23 +1,21 @@
 package com.yawl.android.template.modern
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
-import java.io.File
+import com.yawl.android.template.core.AbstractAndroidTemplate
+import com.yawl.android.template.core.AndroidTemplate
 
-data class MaTemplate(
-    val moduleData: ModuleTemplateData,
-    val hilt: Boolean,
-    val room: Boolean
-) {
-    fun root(): File = moduleData
-        .projectTemplateData
-        .rootDir
+class MaTemplate(
+    moduleData: ModuleTemplateData,
+    private val hilt: Boolean,
+    private val room: Boolean
+) : AbstractAndroidTemplate(moduleData), IMaTemplate {
+    override fun hilt() = hilt
 
-    fun sources(): File = moduleData
-        .srcDir
+    override fun room() = room
+}
 
-    fun packageName(): String = moduleData
-        .packageName
+interface IMaTemplate : AndroidTemplate {
+    fun hilt(): Boolean
 
-    fun projectName(): String = root()
-        .name
+    fun room(): Boolean
 }

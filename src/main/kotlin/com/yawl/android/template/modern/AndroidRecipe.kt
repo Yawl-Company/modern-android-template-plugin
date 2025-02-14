@@ -7,7 +7,7 @@ import com.yawl.android.template.modern.libs.libsVersionsTomlWriter
 import com.yawl.android.template.modern.project.projectWriter
 
 fun RecipeExecutor.modernAndroidRecipe(
-    template: MaTemplate
+    template: IMaTemplate
 ) {
     conventionsWriter(template = template)
     libsVersionsTomlWriter(template = template)

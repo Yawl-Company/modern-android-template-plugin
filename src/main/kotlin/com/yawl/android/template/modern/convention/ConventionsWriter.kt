@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.convention
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.modern.MaTemplate
+import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.modern.convention.android.androidConventionWriter
 import com.yawl.android.template.modern.convention.gradleExtension.gradleConventionWriter
 import com.yawl.android.template.modern.convention.kotlin.kotlinConventionWriter
@@ -9,11 +9,11 @@ import com.yawl.android.template.modern.convention.signing.signingConventionWrit
 import com.yawl.android.template.modern.convention.test.testConventionWriter
 
 fun RecipeExecutor.conventionsWriter(
-    template: MaTemplate
+    template: AndroidTemplate
 ) {
     val moduleName = "build-logic"
     val moduleDirectory = template
-        .root()
+        .projectRoot()
         .resolve(moduleName)
     save(
         source = settingsGradle(),
