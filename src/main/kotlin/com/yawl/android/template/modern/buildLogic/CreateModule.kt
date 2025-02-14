@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.buildLogic
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.modern.core.conventionModuleWriter
+import com.yawl.android.template.core.conventionModuleWriter
 import java.io.File
 
 fun RecipeExecutor.createModule(

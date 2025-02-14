@@ -2,7 +2,7 @@ package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.modern.core.rewriteFile
+import com.yawl.android.template.core.rewriteFile
 
 fun RecipeExecutor.appCoreWriter(
     moduleData: ModuleTemplateData

@@ -1,4 +1,4 @@
-package com.yawl.android.template.modern.core
+package com.yawl.android.template.core
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.intellij.openapi.vfs.LocalFileSystem

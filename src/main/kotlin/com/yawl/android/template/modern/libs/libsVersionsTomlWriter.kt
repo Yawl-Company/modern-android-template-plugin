@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.libs
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.modern.core.rewriteFile
+import com.yawl.android.template.core.rewriteFile
 import java.io.File
 
 fun RecipeExecutor.libsVersionsTomlWriter(
