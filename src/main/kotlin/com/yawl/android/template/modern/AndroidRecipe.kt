@@ -1,16 +1,21 @@
 package com.yawl.android.template.modern
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.core.libsVersionsTomlWriter
 import com.yawl.android.template.modern.app.appModuleWriter
 import com.yawl.android.template.modern.convention.conventionsWriter
-import com.yawl.android.template.modern.libs.libsWriter
 import com.yawl.android.template.modern.project.projectWriter
 
 fun RecipeExecutor.modernAndroidRecipe(
     template: IMaTemplate
 ) {
     conventionsWriter(template = template)
-    libsWriter(template = template)
+    libsVersionsTomlWriter(
+        template = template,
+        content = template
+            .libraries()
+            .declaration()
+    )
     projectWriter(template = template)
     appModuleWriter(template = template)
 }
