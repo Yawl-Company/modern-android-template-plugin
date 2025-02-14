@@ -59,7 +59,7 @@ val modernAndroidTemplate
 
         recipe = { data: TemplateData ->
             modernAndroidRecipe(
-                template = MaTemplate(
+                template = ModernTemplate(
                     moduleData = data as ModuleTemplateData,
                     hilt = useHilt.value,
                     room = useRoom.value,

@@ -9,7 +9,7 @@ import com.yawl.android.template.modern.dependencies.modernAndroidLibraries
 import com.yawl.android.template.modern.dependencies.modernAndroidPlugins
 import com.yawl.android.template.modern.dependencies.modernAndroidVersions
 
-class MaTemplate(
+class ModernTemplate(
     moduleData: ModuleTemplateData,
     private val hilt: Boolean,
     private val room: Boolean,
