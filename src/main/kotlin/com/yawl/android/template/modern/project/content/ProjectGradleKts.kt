@@ -1,16 +1,16 @@
 package com.yawl.android.template.modern.project.content
 
-fun projectGradleKts(): String {
-    return """
-        plugins {
-            alias(libs.plugins.android.application) apply false
-            alias(libs.plugins.android.library) apply false
-            alias(libs.plugins.kotlin.compose) apply false
-            alias(libs.plugins.ksp) apply false
-            alias(libs.plugins.hilt) apply false
-            alias(libs.plugins.kotlin.serialization) apply false
-            alias(libs.plugins.room) apply false
-            alias(libs.plugins.gradle.secrets) apply false
-        }
-    """.trimIndent()
-}
+import com.yawl.android.template.core.libs.Plugin
+import com.yawl.android.template.modern.IMaTemplate
+
+fun maTemplatePlugins(template: IMaTemplate) =
+    listOfNotNull(
+        Plugin("android.application"),
+        Plugin("android.library"),
+        Plugin("kotlin.compose"),
+        Plugin("ksp"),
+        Plugin("kotlin.serialization"),
+        Plugin("gradle.secrets"),
+        template.hilt().takeIf { it }?.let { Plugin("hilt") },
+        template.room().takeIf { it }?.let { Plugin("room") }
+    )
