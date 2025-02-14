@@ -1,7 +1,7 @@
 package com.yawl.android.template.core.write
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.saveFile
+import com.yawl.android.template.core.extension.saveFile
 import java.io.File
 
 fun RecipeExecutor.buildGradleKtsWriter(
