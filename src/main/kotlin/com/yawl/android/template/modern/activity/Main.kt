@@ -2,6 +2,7 @@ package com.yawl.android.template.modern.activity
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.modern.MaTemplate
+import com.yawl.android.template.modern.activity.content.mainActivity
 
 fun RecipeExecutor.appModuleWriter(
     template: MaTemplate,

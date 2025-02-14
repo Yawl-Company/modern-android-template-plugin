@@ -1,4 +1,4 @@
-package com.yawl.android.template.modern.activity
+package com.yawl.android.template.modern.activity.content
 
 import com.android.tools.idea.wizard.template.escapeKotlinIdentifier
 
