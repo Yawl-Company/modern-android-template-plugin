@@ -4,6 +4,10 @@ import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.yawl.android.template.core.AbstractAndroidTemplate
 import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.libs.LibsToml
+import com.yawl.android.template.modern.dependencies.modernAndroidConventionPlugins
+import com.yawl.android.template.modern.dependencies.modernAndroidLibraries
+import com.yawl.android.template.modern.dependencies.modernAndroidPlugins
+import com.yawl.android.template.modern.dependencies.modernAndroidVersions
 
 class MaTemplate(
     moduleData: ModuleTemplateData,
