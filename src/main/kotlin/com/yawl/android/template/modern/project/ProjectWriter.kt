@@ -5,7 +5,6 @@ import com.yawl.android.template.core.buildGradleKtsWriter
 import com.yawl.android.template.core.libs.coreProjectGradleKts
 import com.yawl.android.template.core.settingsGradleKtsWriter
 import com.yawl.android.template.modern.IMaTemplate
-import com.yawl.android.template.modern.project.content.maTemplatePlugins
 import com.yawl.android.template.modern.project.content.projectSettingsGradleKts
 
 fun RecipeExecutor.projectWriter(
@@ -15,7 +14,7 @@ fun RecipeExecutor.projectWriter(
     buildGradleKtsWriter(
         directory = root,
         content = coreProjectGradleKts {
-            maTemplatePlugins(template)
+            template.libraries().plugins
         },
         force = true
     )

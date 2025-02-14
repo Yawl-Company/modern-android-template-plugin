@@ -1,9 +1,12 @@
 package com.yawl.android.template.core
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
+import com.yawl.android.template.core.libs.LibsToml
 import java.io.File
 
 interface AndroidTemplate {
+
+    fun libraries(): LibsToml
 
     fun projectName(): String
 
@@ -32,4 +35,12 @@ abstract class AbstractAndroidTemplate(
         .projectTemplateData
         .rootDir
         .name
+
+    override fun libraries(): LibsToml {
+        return LibsToml(
+            versions = emptyList(),
+            plugins = emptyList(),
+            libraries = emptyList()
+        )
+    }
 }

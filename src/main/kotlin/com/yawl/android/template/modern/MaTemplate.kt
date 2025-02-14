@@ -3,6 +3,7 @@ package com.yawl.android.template.modern
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.yawl.android.template.core.AbstractAndroidTemplate
 import com.yawl.android.template.core.AndroidTemplate
+import com.yawl.android.template.core.libs.LibsToml
 
 class MaTemplate(
     moduleData: ModuleTemplateData,
@@ -15,6 +16,14 @@ class MaTemplate(
     override fun room() = room
 
     override fun gradleSecrets() = gradleSecrets
+
+    override fun libraries(): LibsToml {
+        return LibsToml(
+            versions = emptyList(),
+            plugins = emptyList(),
+            libraries = emptyList()
+        )
+    }
 }
 
 interface IMaTemplate : AndroidTemplate {

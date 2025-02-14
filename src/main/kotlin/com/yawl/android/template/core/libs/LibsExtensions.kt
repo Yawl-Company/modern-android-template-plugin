@@ -3,7 +3,7 @@ package com.yawl.android.template.core.libs
 fun pluginAlias(
     plugin: Plugin,
     apply: Boolean = false
-) = "alias(libs.plugins.${plugin.name}) apply $apply"
+) = "alias(libs.plugins.${plugin}) apply $apply"
 
 fun coreProjectGradleKts(
     plugins: () -> List<Plugin>,
