@@ -9,15 +9,15 @@ class LibsToml(
     override fun declaration(): String {
         return buildString {
             append("[versions]")
-            versions.forEach { appendLine(it) }
+            versions.forEach { appendLine(it.declaration()) }
             appendLine()
             append("[libraries]")
-            libraries.forEach { appendLine(it) }
+            libraries.forEach { appendLine(it.declaration()) }
             appendLine()
             append("[plugins]")
-            plugins.forEach { appendLine(it) }
+            plugins.forEach { appendLine(it.declaration()) }
             appendLine()
-            conventionPlugins.forEach { appendLine(it) }
+            conventionPlugins.forEach { appendLine(it.declaration()) }
         }
     }
 }
