@@ -22,7 +22,7 @@ fun RecipeExecutor.appBuildGradleWriter(
             .resolve("app"),
         content = appSrcBuildGradleKts(
             packageName = template
-                .projectName()
+                .packageName()
         ),
         force = true
     )
