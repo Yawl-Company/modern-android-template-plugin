@@ -21,7 +21,8 @@ class MaTemplate(
         return LibsToml(
             versions = modernAndroidVersions(),
             plugins = modernAndroidPlugins(),
-            libraries = modernAndroidLibraries()
+            libraries = modernAndroidLibraries(),
+            conventionPlugins = modernAndroidConventionPlugins()
         )
     }
 }

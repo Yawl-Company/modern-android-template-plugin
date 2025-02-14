@@ -40,7 +40,8 @@ abstract class AbstractAndroidTemplate(
         return LibsToml(
             versions = emptyList(),
             plugins = emptyList(),
-            libraries = emptyList()
+            libraries = emptyList(),
+            conventionPlugins = emptyList(),
         )
     }
 }

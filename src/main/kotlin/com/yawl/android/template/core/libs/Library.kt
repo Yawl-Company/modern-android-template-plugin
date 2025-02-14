@@ -4,6 +4,7 @@ class LibsToml(
     val versions: List<Version>,
     val libraries: List<Library>,
     val plugins: List<Plugin>,
+    val conventionPlugins: List<ConventionPlugin>,
 ) : Declaratable {
     override fun declaration(): String {
         return buildString {
@@ -16,7 +17,23 @@ class LibsToml(
             append("[plugins]")
             plugins.forEach { appendLine(it) }
             appendLine()
+            conventionPlugins.forEach { appendLine(it) }
         }
+    }
+}
+
+data class ConventionPlugin(
+    private val toml: LibsVersionsTomlName,
+    private val id: String
+) : Declaratable, Aliasable {
+    override fun declaration(): String {
+        val pluginAlias = alias()
+        val pluginDescription = "{ id = \"$id\", version = \"unspecified\" }"
+        return "$pluginAlias = $pluginDescription"
+    }
+
+    override fun alias(): String {
+        return "libs.plugins.${toml.alias()}"
     }
 }
 

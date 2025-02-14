@@ -1,22 +1,34 @@
 package com.yawl.android.template.modern
 
+import com.yawl.android.template.core.libs.ConventionPlugin
 import com.yawl.android.template.core.libs.Library
 import com.yawl.android.template.core.libs.Plugin
 import com.yawl.android.template.core.libs.Version
 
-fun IMaTemplate.modernAndroidVersions(): List<Version> {
+fun IMaTemplate.modernAndroidVersions(
+): List<Version> {
     return listOf(
 
     )
 }
 
-fun IMaTemplate.modernAndroidLibraries(): List<Library> {
+fun IMaTemplate.modernAndroidLibraries(
+): List<Library> {
     return listOf(
 
     )
 }
 
-fun IMaTemplate.modernAndroidPlugins(): List<Plugin> {
+fun IMaTemplate.modernAndroidPlugins(
+): List<Plugin> {
+    return listOf(
+
+    )
+}
+
+
+fun IMaTemplate.modernAndroidConventionPlugins(
+): List<ConventionPlugin> {
     return listOf(
 
     )
