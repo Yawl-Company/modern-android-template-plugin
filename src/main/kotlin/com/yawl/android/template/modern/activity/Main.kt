@@ -1,13 +1,14 @@
 package com.yawl.android.template.modern.activity
 
-import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.modern.MaTemplate
 
-fun RecipeExecutor.main(
-    moduleData: ModuleTemplateData
+fun RecipeExecutor.appModuleWriter(
+    template: MaTemplate,
 ) {
-    val (_, srcOut) = moduleData
-    val packageName = moduleData.packageName
+    val module = template.moduleData
+    val (_, srcOut) = module
+    val packageName = module.packageName
     val activityPath = srcOut
         .resolve("MainActivity.kt")
     save(

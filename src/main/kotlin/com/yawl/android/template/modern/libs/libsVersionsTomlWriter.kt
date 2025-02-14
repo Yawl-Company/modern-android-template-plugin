@@ -2,13 +2,15 @@ package com.yawl.android.template.modern.libs
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.rewriteFile
-import java.io.File
+import com.yawl.android.template.modern.MaTemplate
 
 fun RecipeExecutor.libsVersionsTomlWriter(
-    root: File
+    template: MaTemplate
 ) {
     val moduleName = "gradle"
-    val gradleDir = root.resolve(moduleName)
+    val gradleDir = template
+        .root()
+        .resolve(moduleName)
     rewriteFile(
         source = gradleDir
             .resolve("libs.versions.toml"),
