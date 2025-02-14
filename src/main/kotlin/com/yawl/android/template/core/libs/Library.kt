@@ -30,9 +30,9 @@ data class ConventionPlugin(
     private val id: String
 ) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val pluginAlias = alias()
+        val pluginName = toml.name()
         val pluginDescription = "{ id = \"$id\", version = \"unspecified\" }"
-        return "$pluginAlias = $pluginDescription"
+        return "$pluginName = $pluginDescription"
     }
 
     override fun alias(): String {
@@ -95,12 +95,6 @@ data class Version(
 data class LibsVersionsTomlName(
     private val value: String
 ) : Nameable, Declaratable, Aliasable {
-//    init {
-//        require(value.matches(Regex("^[a-z]+(-[a-z]+)+$"))) {
-//            "Invalid alias format"
-//        }
-//    }
-
     override fun name(): String {
         return value
     }
