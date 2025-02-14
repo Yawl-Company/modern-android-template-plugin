@@ -1,6 +1,6 @@
-package com.yawl.android.template.modern.app.content
+package com.yawl.android.template.modern.project.content
 
-fun packageSettingsGradleKts(
+fun projectSettingsGradleKts(
     projectName: String
 ): String {
     return """

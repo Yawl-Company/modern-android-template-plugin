@@ -1,6 +1,6 @@
-package com.yawl.android.template.modern.app.content
+package com.yawl.android.template.modern.project.content
 
-fun packageGradleKts(): String {
+fun projectGradleKts(): String {
     return """
         plugins {
             alias(libs.plugins.android.application) apply false

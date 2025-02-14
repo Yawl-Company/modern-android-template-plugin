@@ -17,4 +17,7 @@ data class MaTemplate(
 
     fun packageName(): String = moduleData
         .packageName
+
+    fun projectName(): String = root()
+        .name
 }

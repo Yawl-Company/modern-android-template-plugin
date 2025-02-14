@@ -1,4 +1,4 @@
-package com.yawl.android.template.modern.app.content
+package com.yawl.android.template.modern.activity.content
 
 fun appSrcBuildGradleKts(
     packageName: String,
