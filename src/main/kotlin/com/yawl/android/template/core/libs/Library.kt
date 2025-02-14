@@ -9,12 +9,15 @@ class LibsToml(
     override fun declaration(): String {
         return buildString {
             append("[versions]")
+            appendLine()
             versions.forEach { appendLine(it.declaration()) }
             appendLine()
             append("[libraries]")
+            appendLine()
             libraries.forEach { appendLine(it.declaration()) }
             appendLine()
             append("[plugins]")
+            appendLine()
             plugins.forEach { appendLine(it.declaration()) }
             appendLine()
             conventionPlugins.forEach { appendLine(it.declaration()) }
@@ -43,10 +46,10 @@ data class Plugin(
     private val version: Version
 ) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val pluginAlias = alias()
-        val versionAlias = version.alias()
-        val pluginDescription = "{ id = \"$id\", version.ref = \"$versionAlias\" }"
-        return "$pluginAlias = $pluginDescription"
+        val pluginName = toml.name()
+        val versionName = version.name()
+        val pluginDescription = "{ id = \"$id\", version.ref = \"$versionName\" }"
+        return "$pluginName = $pluginDescription"
     }
 
     override fun alias(): String {
@@ -81,7 +84,7 @@ data class Version(
     }
 
     override fun declaration(): String {
-        return "$name = \"$value\""
+        return "${name.declaration()} = \"$value\""
     }
 
     override fun alias(): String {
@@ -92,11 +95,11 @@ data class Version(
 data class LibsVersionsTomlName(
     private val value: String
 ) : Nameable, Declaratable, Aliasable {
-    init {
-        require(value.matches(Regex("^[a-z]+(-[a-z]+)+$"))) {
-            "Invalid alias format"
-        }
-    }
+//    init {
+//        require(value.matches(Regex("^[a-z]+(-[a-z]+)+$"))) {
+//            "Invalid alias format"
+//        }
+//    }
 
     override fun name(): String {
         return value
