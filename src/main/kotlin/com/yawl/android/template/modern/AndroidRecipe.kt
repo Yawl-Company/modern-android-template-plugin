@@ -9,13 +9,13 @@ import com.yawl.android.template.modern.project.projectWriter
 fun RecipeExecutor.modernAndroidRecipe(
     template: IMaTemplate
 ) {
-    conventionsWriter(template = template)
     libsVersionsTomlWriter(
         template = template,
         content = template
             .libraries()
             .declaration()
     )
+    conventionsWriter(template = template)
     projectWriter(template = template)
     appModuleWriter(template = template)
 }
