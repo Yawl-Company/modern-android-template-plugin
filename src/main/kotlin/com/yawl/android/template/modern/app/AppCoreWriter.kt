@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.rewriteFile
+import com.yawl.android.template.core.saveFile
 import com.yawl.android.template.modern.MaTemplate
 
 fun RecipeExecutor.appCoreWriter(
@@ -12,23 +12,26 @@ fun RecipeExecutor.appCoreWriter(
     val rootDir = projectData.rootDir
     val projectName = rootDir.name
     val packageName = module.packageName
-    rewriteFile(
+    saveFile(
         source = rootDir
             .resolve("build.gradle.kts"),
-        content = packageGradleKts()
+        content = packageGradleKts(),
+        force = true
     )
-    rewriteFile(
+    saveFile(
         source = rootDir
             .resolve("settings.gradle.kts"),
         content = packageSettingsGradleKts(
             projectName = projectName
-        )
+        ),
+        force = true
     )
-    rewriteFile(
+    saveFile(
         source = rootDir
             .resolve("app/build.gradle.kts"),
         content = appSrcBuildGradleKts(
             packageName = packageName
-        )
+        ),
+        force = true
     )
 }

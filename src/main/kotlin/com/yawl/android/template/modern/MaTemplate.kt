@@ -9,6 +9,7 @@ data class MaTemplate(
     val room: Boolean
 ) {
     fun root(): File = moduleData
+        .projectTemplateData
         .rootDir
 
 }

@@ -13,13 +13,14 @@ fun RecipeExecutor.deleteFile(
         ?.delete(this)
 }
 
-fun RecipeExecutor.rewriteFile(
+fun RecipeExecutor.saveFile(
     source: File,
-    content: String
+    content: String,
+    force: Boolean = false
 ) {
-    deleteFile(
-        source = source
-    )
+    if (force) {
+        deleteFile(source = source)
+    }
     save(
         source = content,
         to = source
