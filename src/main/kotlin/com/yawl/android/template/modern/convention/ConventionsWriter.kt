@@ -19,11 +19,13 @@ fun RecipeExecutor.conventionsWriter(
         .resolve(moduleName)
     settingsGradleKtsWriter(
         directory = moduleDirectory,
-        content = settingsGradle()
+        content = settingsGradle(),
+        force = false
     )
     buildGradleKtsWriter(
         directory = moduleDirectory,
-        content = buildGradle()
+        content = buildGradle(),
+        force = false
     )
     androidConventionWriter(
         parentDirectory = moduleDirectory
