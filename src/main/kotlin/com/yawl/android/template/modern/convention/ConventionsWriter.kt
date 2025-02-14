@@ -2,6 +2,8 @@ package com.yawl.android.template.modern.convention
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
+import com.yawl.android.template.core.buildGradleKtsWriter
+import com.yawl.android.template.core.settingsGradleKtsWriter
 import com.yawl.android.template.modern.convention.android.androidConventionWriter
 import com.yawl.android.template.modern.convention.gradleExtension.gradleConventionWriter
 import com.yawl.android.template.modern.convention.kotlin.kotlinConventionWriter
@@ -15,15 +17,13 @@ fun RecipeExecutor.conventionsWriter(
     val moduleDirectory = template
         .projectRoot()
         .resolve(moduleName)
-    save(
-        source = settingsGradle(),
-        to = moduleDirectory
-            .resolve("settings.gradle.kts"),
+    settingsGradleKtsWriter(
+        directory = moduleDirectory,
+        content = settingsGradle()
     )
-    save(
-        source = buildGradle(),
-        to = moduleDirectory
-            .resolve("build.gradle.kts"),
+    buildGradleKtsWriter(
+        directory = moduleDirectory,
+        content = buildGradle()
     )
     androidConventionWriter(
         parentDirectory = moduleDirectory

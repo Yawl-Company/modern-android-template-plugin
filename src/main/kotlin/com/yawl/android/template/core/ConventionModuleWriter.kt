@@ -13,9 +13,9 @@ fun RecipeExecutor.conventionModuleWriter(
     createDirectory(
         at = directory
     )
-    save(
-        source = buildGradleSource,
-        to = directory
-            .resolve("build.gradle.kts"),
+    buildGradleKtsWriter(
+        directory = directory,
+        content = buildGradleSource,
+        force = false
     )
 }
