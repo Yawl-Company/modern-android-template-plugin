@@ -47,6 +47,7 @@ val ksp = Version(LibsVersionsTomlName("ksp"), "2.1.0-1.0.29")
 val room = Version(LibsVersionsTomlName("room"), "2.6.1")
 val hilt = Version(LibsVersionsTomlName("hilt"), "2.53")
 val hiltCompiler = Version(LibsVersionsTomlName("hilt-compiler"), "1.2.0")
+val javax = Version(LibsVersionsTomlName("javax-inject"), "1")
 
 // build
 val secrets = Version(LibsVersionsTomlName("secrets"), "2.0.1")
@@ -81,6 +82,7 @@ fun IMaTemplate.modernAndroidVersions(): List<Version> {
         room,
         hilt,
         hiltCompiler,
+        javax,
         secrets
     )
 }
@@ -309,7 +311,7 @@ fun IMaTemplate.modernAndroidLibraries(): List<Library> {
             LibsVersionsTomlName("javax-inject"),
             "javax.inject",
             "javax.inject",
-            Version(LibsVersionsTomlName("javax-inject"), "1")
+            javax
         ),
         // Other
         Library(
