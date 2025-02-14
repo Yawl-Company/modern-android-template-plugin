@@ -14,33 +14,33 @@ fun RecipeExecutor.conventionsWriter(
     template: AndroidTemplate
 ) {
     val moduleName = "build-logic"
-    val moduleDirectory = template
+    val directory = template
         .projectRoot()
         .resolve(moduleName)
     settingsGradleKtsWriter(
-        directory = moduleDirectory,
+        directory = directory,
         content = settingsGradle(),
         force = false
     )
     buildGradleKtsWriter(
-        directory = moduleDirectory,
+        directory = directory,
         content = buildGradle(),
         force = false
     )
     androidConventionWriter(
-        parentDirectory = moduleDirectory
+        parentDirectory = directory
     )
     gradleConventionWriter(
-        parentDirectory = moduleDirectory
+        parentDirectory = directory
     )
     kotlinConventionWriter(
-        parentDirectory = moduleDirectory
+        parentDirectory = directory
     )
     signingConventionWriter(
-        parentDirectory = moduleDirectory
+        parentDirectory = directory
     )
     testConventionWriter(
-        parentDirectory = moduleDirectory
+        parentDirectory = directory
     )
 }
 
