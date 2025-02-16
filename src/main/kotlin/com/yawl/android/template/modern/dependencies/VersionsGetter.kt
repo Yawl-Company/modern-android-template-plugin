@@ -13,7 +13,6 @@ fun IModernTemplate.modernAndroidVersions(): List<VersionToml> {
         addAndroidKtxVersions()
         addNetworkVersions()
         addKotlin()
-        addBuildVersions()
         if (this@modernAndroidVersions.room()) {
             addRoom()
         }
@@ -74,10 +73,6 @@ private fun MutableList<VersionToml>.addKotlin() {
 
 private fun MutableList<VersionToml>.addRoom() {
     add(vRoom)
-}
-
-private fun MutableList<VersionToml>.addBuildVersions() {
-    add(vSecrets)
 }
 
 private fun MutableList<VersionToml>.addHiltVersions() {
