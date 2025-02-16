@@ -7,7 +7,7 @@ import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.core.write.settingsGradleKtsWriter
 import com.yawl.android.template.modern.IModernTemplate
 
-fun RecipeExecutor.projectWriter(
+fun RecipeExecutor.setupProject(
     template: IModernTemplate
 ) {
     val root = template
