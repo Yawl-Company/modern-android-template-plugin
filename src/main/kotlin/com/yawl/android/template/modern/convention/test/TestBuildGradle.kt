@@ -1,7 +1,13 @@
 package com.yawl.android.template.modern.convention.test
 
+import com.yawl.android.template.core.convention.conventionPluginsRegistration
+import com.yawl.android.template.core.libs.usage.conventionAndroidUiTest
+import com.yawl.android.template.core.libs.usage.conventionAndroidUnitTest
+
 internal fun testBuildGradle(): String {
-    return """
+    return buildString {
+        appendLine(
+        """
         plugins {
             kotlin("jvm")
             `java-gradle-plugin`
@@ -13,19 +19,18 @@ internal fun testBuildGradle(): String {
             implementation(projects.gradleExtension)
             implementation(libs.android.gradlePlugin)
         }
+        """
+        )
 
-        gradlePlugin {
-            plugins {
-                create("unit") {
-                    id = "convention.unit"
-                    implementationClass = "com.convention.AndroidUnitTestConventionPlugin"
-                }
-                
-                create("ui") {
-                    id = "convention.ui"
-                    implementationClass = "com.convention.AndroidUiTestConventionPlugin"
-                }
-            }
-        }
-    """.trimIndent()
+        appendLine()
+
+        appendLine(
+            conventionPluginsRegistration(
+                listOfNotNull(
+                    conventionAndroidUnitTest to "com.convention.AndroidUnitTestConventionPlugin",
+                    conventionAndroidUiTest to "com.convention.AndroidUiTestConventionPlugin",
+                )
+            )
+        )
+    }
 }
