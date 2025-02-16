@@ -15,11 +15,9 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
             implementation(projects.kotlin)
             implementation(projects.gradleExtension)
             implementation(libs.android.gradlePlugin)
-            implementation(libs.ksp.gradlePlugin)
-            ${if (template.room()) 
-            """
-            implementation(libs.room.gradlePlugin)
-            """ 
+            implementation(libs.ksp.gradlePlugin)${
+            if (template.room()) 
+            "implementation(libs.room.gradlePlugin)"
             else ""}
         }
 
@@ -38,22 +36,22 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
                 create("android-compose") {
                     id = "convention.android-compose"
                     implementationClass = "com.convention.compose.AndroidComposeConventionPlugin"
-                }
-                ${if (template.hilt()) "\n" + 
+                }${
+                if (template.hilt()) "\n" + 
                 """
                 create("hilt") {
                     id = "convention.hilt"
                     implementationClass = "com.convention.HiltConventionPlugin"
                 }
-                """.trimIndent() 
-                else ""}
-                ${if (template.room()) "\n" + 
-                """
-                create("room") {
-                    id = "convention.room"
-                    implementationClass = "com.convention.AndroidRoomConventionPlugin"
-                }
-                """.trimIndent()
+                """.trimIndent() +
+                if (template.room()) "\n" +
+                        """
+                    create("room") {
+                        id = "convention.room"
+                        implementationClass = "com.convention.AndroidRoomConventionPlugin"
+                    }
+                    """.trimIndent()
+                else ""
                 else ""}
             }
         }
