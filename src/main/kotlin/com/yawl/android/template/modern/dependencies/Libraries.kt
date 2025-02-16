@@ -1,259 +1,239 @@
 package com.yawl.android.template.modern.dependencies
 
-import com.yawl.android.template.core.libs.Library
-import com.yawl.android.template.core.libs.LibsVersionsTomlName
-import com.yawl.android.template.modern.*
+import com.yawl.android.template.core.libs.LibraryToml
+import com.yawl.android.template.core.libs.TomlName
+import com.yawl.android.template.core.libs.inuse.*
 
-fun IMaTemplate.modernAndroidLibraries(): List<Library> {
-    return listOf(
-        // Build core
-        Library(
-            LibsVersionsTomlName("kotlin-gradlePlugin"),
-            "org.jetbrains.kotlin",
-            "kotlin-gradle-plugin",
-            kotlin
-        ),
-        Library(
-            LibsVersionsTomlName("android-gradlePlugin"),
-            "com.android.tools.build",
-            "gradle",
-            agp
-        ),
-        Library(
-            LibsVersionsTomlName("ksp-gradlePlugin"),
-            "com.google.devtools.ksp",
-            "com.google.devtools.ksp.gradle.plugin",
-            ksp
-        ),
-        Library(
-            LibsVersionsTomlName("room-gradlePlugin"),
-            "androidx.room",
-            "room-gradle-plugin",
-            room
-        ),
-        // Android KTX
-        Library(
-            LibsVersionsTomlName("androidx-core-ktx"),
-            "androidx.core",
-            "core-ktx",
-            coreKtx
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-lifecycle-runtime-ktx"),
-            "androidx.lifecycle",
-            "lifecycle-runtime-ktx",
-            lifecycleRuntimeKtx
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-lifecycle-viewmodel-ktx"),
-            "androidx.lifecycle",
-            "lifecycle-viewmodel-ktx",
-            lifecycleRuntimeKtx
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-hilt-compiler"),
-            "androidx.hilt",
-            "hilt-compiler",
-            hiltCompiler
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-hilt-navigation-compose"),
-            "androidx.hilt",
-            "hilt-navigation-compose",
-            hiltCompiler
-        ),
-        // Compose
-        Library(
-            LibsVersionsTomlName("androidx-compose-bom"),
-            "androidx.compose",
-            "compose-bom",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-compose-runtime"),
-            "androidx.compose.runtime",
-            "runtime",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-activity-compose"),
-            "androidx.activity",
-            "activity-compose",
-            activityCompose
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui"),
-            "androidx.compose.ui",
-            "ui",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui-graphics"),
-            "androidx.compose.ui",
-            "ui-graphics",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui-tooling-base"),
-            "androidx.compose.ui",
-            "ui-tooling",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui-tooling-preview"),
-            "androidx.compose.ui",
-            "ui-tooling-preview",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-navigation-compose"),
-            "androidx.navigation",
-            "navigation-compose",
-            androidxComposeNavigation
-        ),
-        // Compose Material
-        Library(
-            LibsVersionsTomlName("androidx-compose-material3"),
-            "androidx.compose.material3",
-            "material3",
-            composeBom
-        ),
-        // Testing
-        Library(
-            LibsVersionsTomlName("junit"),
-            "junit",
-            "junit",
-            junit
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-junit"),
-            "androidx.test.ext",
-            "junit",
-            junitVersion
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-test-rules"),
-            "androidx.test",
-            "rules",
-            testRules
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-test-runner"),
-            "androidx.test",
-            "runner",
-            testRunner
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-espresso-core"),
-            "androidx.test.espresso",
-            "espresso-core",
-            espressoCore
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui-test-junit4"),
-            "androidx.compose.ui",
-            "ui-test-junit4",
-            composeBom
-        ),
-        Library(
-            LibsVersionsTomlName("androidx-ui-test-manifest"),
-            "androidx.compose.ui",
-            "ui-test-manifest",
-            composeBom
-        ),
-        // Networking
-        Library(
-            LibsVersionsTomlName("okhttp-bom"),
-            "com.squareup.okhttp3",
-            "okhttp-bom",
-            okhttpBom
-        ),
-        Library(
-            LibsVersionsTomlName("okhttp-core"),
-            "com.squareup.okhttp3",
-            "okhttp",
-            okhttpBom
-        ),
-        Library(
-            LibsVersionsTomlName("okhttp-logging"),
-            "com.squareup.okhttp3",
-            "logging-interceptor",
-            okhttpBom
-        ),
-        Library(
-            LibsVersionsTomlName("retrofit-core"),
-            "com.squareup.retrofit2",
-            "retrofit",
-            retrofit
-        ),
-        Library(
-            LibsVersionsTomlName("retrofit-converter-json"),
-            "com.squareup.retrofit2",
-            "converter-kotlinx-serialization",
-            retrofit
-        ),
-        // Caching
-        Library(
-            LibsVersionsTomlName("room-runtime"),
-            "androidx.room",
-            "room-runtime",
-            room
-        ),
-        Library(
-            LibsVersionsTomlName("room-ktx"),
-            "androidx.room",
-            "room-ktx",
-            room
-        ),
-        Library(
-            LibsVersionsTomlName("room-compiler"),
-            "androidx.room",
-            "room-compiler",
-            room
-        ),
-        // Dependency Injection
-        Library(
-            LibsVersionsTomlName("hilt-compiler"),
-            "com.google.dagger",
-            "hilt-compiler",
-            hilt
-        ),
-        Library(
-            LibsVersionsTomlName("hilt-android"),
-            "com.google.dagger",
-            "hilt-android",
-            hilt
-        ),
-        Library(
-            LibsVersionsTomlName("javax-inject"),
-            "javax.inject",
-            "javax.inject",
-            javax
-        ),
-        // Other
-        Library(
-            LibsVersionsTomlName("kotlin-coroutines-core"),
-            "org.jetbrains.kotlinx",
-            "kotlinx-coroutines-core",
-            kotlinCoroutines
-        ),
-        Library(
-            LibsVersionsTomlName("kotlin-coroutines-android"),
-            "org.jetbrains.kotlinx",
-            "kotlinx-coroutines-android",
-            kotlinCoroutines
-        ),
-        Library(
-            LibsVersionsTomlName("kotlin-serialization-json"),
-            "org.jetbrains.kotlinx",
-            "kotlinx-serialization-json",
-            kotlinSerialization
-        ),
-        Library(
-            LibsVersionsTomlName("kotlinx-datetime"),
-            "org.jetbrains.kotlinx",
-            "kotlinx-datetime",
-            kotlinxDatetime
-        )
-    )
-}
+val lKotlinGradlePluginToml = LibraryToml(
+    TomlName("kotlin-gradlePlugin"),
+    kotlinGradlePlugin,
+    vKotlin
+)
+
+val lAndroidGradlePluginToml = LibraryToml(
+    TomlName("android-gradlePlugin"),
+    androidGradlePlugin,
+    vAgp
+)
+
+val lKspGradlePluginToml = LibraryToml(
+    TomlName("ksp-gradlePlugin"),
+    kspGradlePlugin,
+    vKsp
+)
+
+val lRoomGradlePluginToml = LibraryToml(
+    TomlName("room-gradlePlugin"),
+    roomGradlePlugin,
+    vRoom
+)
+
+val lCoreKtxToml = LibraryToml(
+    TomlName("androidx-core-ktx"),
+    androidxCoreKtx,
+    vCoreKtx
+)
+
+val lLifecycleRuntimeKtxToml = LibraryToml(
+    TomlName("androidx-lifecycle-runtime-ktx"),
+    androidxLifecycleRuntimeKtx,
+    vLifecycleRuntimeKtx
+)
+
+val lLifecycleViewModelKtxToml = LibraryToml(
+    TomlName("androidx-lifecycle-viewmodel-ktx"),
+    androidxLifecycleViewModelKtx,
+    vLifecycleRuntimeKtx
+)
+
+val lHiltCompilerToml = LibraryToml(
+    TomlName("androidx-hilt-compiler"),
+    androidxHiltCompiler,
+    vHiltCompiler
+)
+
+val lHiltNavigationComposeToml = LibraryToml(
+    TomlName("androidx-hilt-navigation-compose"),
+    androidxHiltNavigationCompose,
+    vHiltCompiler
+)
+
+val lComposeBomToml = LibraryToml(
+    TomlName("androidx-compose-bom"),
+    androidxComposeBom,
+    vComposeBom
+)
+
+val lComposeRuntimeToml = LibraryToml(
+    TomlName("androidx-compose-runtime"),
+    androidxComposeRuntime,
+    vComposeBom
+)
+
+val lActivityComposeToml = LibraryToml(
+    TomlName("androidx-activity-compose"),
+    androidxActivityCompose,
+    vActivityCompose
+)
+
+val lComposeUiToml = LibraryToml(
+    TomlName("androidx-compose-ui"),
+    androidxComposeUi,
+    vAndroidxComposeCompiler
+)
+
+val lComposeUiGraphicsToml = LibraryToml(
+    TomlName("androidx-compose-ui-graphics"),
+    androidxComposeUiGraphics,
+    vAndroidxComposeCompiler
+)
+
+val lComposeUiToolingToml = LibraryToml(
+    TomlName("androidx-compose-ui-tooling-base"),
+    androidxComposeUiTooling,
+    vAndroidxComposeCompiler
+)
+
+val lComposeUiToolingPreviewToml = LibraryToml(
+    TomlName("androidx-compose-ui-tooling-preview"),
+    androidxComposeUiToolingPreview,
+    vAndroidxComposeCompiler
+)
+
+val lComposeNavigationToml = LibraryToml(
+    TomlName("androidx-compose-navigation"),
+    androidxComposeNavigation,
+    vAndroidxComposeNavigation
+)
+
+val lJunitToml = LibraryToml(
+    TomlName("junit"),
+    junit,
+    vJunit
+)
+
+val lAndroidJUnitToml = LibraryToml(
+    TomlName("androidx-junit"),
+    androidxJUnit,
+    vJunitVersion
+)
+
+val lTestRulesToml = LibraryToml(
+    TomlName("androidx-test-rules"),
+    androidxTestRules,
+    vTestRules
+)
+
+val lTestRunnerToml = LibraryToml(
+    TomlName("androidx-test-runner"),
+    androidxTestRunner,
+    vTestRunner
+)
+
+val lEspressoCoreToml = LibraryToml(
+    TomlName("androidx-espresso-core"),
+    androidxEspressoCore,
+    vEspressoCore
+)
+
+val lUiTestJUnit4Toml = LibraryToml(
+    TomlName("androidx-ui-test-junit4"),
+    androidxUiTestJunit4,
+    vAndroidxComposeCompiler
+)
+
+val lUiTestManifestToml = LibraryToml(
+    TomlName("androidx-ui-test-manifest"),
+    androidxUiTestManifest,
+    vAndroidxComposeCompiler
+)
+
+val lOkhttpBomToml = LibraryToml(
+    TomlName("okhttp-bom"),
+    okhttpBom,
+    vOkhttpBom
+)
+
+val lOkhttpToml = LibraryToml(
+    TomlName("okhttp"),
+    okhttp,
+    vOkhttpBom
+)
+
+val lOkhttpLoggingToml = LibraryToml(
+    TomlName("okhttp-logging"),
+    okhttpLogging,
+    vOkhttpBom
+)
+
+val lRetrofitToml = LibraryToml(
+    TomlName("retrofit"),
+    retrofit,
+    vRetrofit
+)
+
+val lRetrofitConverterJsonToml = LibraryToml(
+    TomlName("retrofit-converter-json"),
+    retrofitConverterJson,
+    vRetrofit
+)
+
+val lRoomRuntimeToml = LibraryToml(
+    TomlName("room-runtime"),
+    roomRuntime,
+    vRoom
+)
+
+val lRoomKtxToml = LibraryToml(
+    TomlName("room-ktx"),
+    roomKtx,
+    vRoom
+)
+
+val lRoomCompilerToml = LibraryToml(
+    TomlName("room-compiler"),
+    roomCompiler,
+    vRoom
+)
+
+val lDaggerHiltAndroidToml = LibraryToml(
+    TomlName("hilt-android"),
+    hiltAndroid,
+    vHilt
+)
+
+val lDaggerHiltCompilerToml = LibraryToml(
+    TomlName("hilt-compiler"),
+    hiltCompiler,
+    vHiltCompiler
+)
+
+val lJavaxInjectToml = LibraryToml(
+    TomlName("javax-inject"),
+    javaxInject,
+    vJavax
+)
+
+val lCoroutinesCoreToml = LibraryToml(
+    TomlName("kotlin-coroutines-core"),
+    kotlinCoroutinesCore,
+    vKotlinCoroutines
+)
+
+val lCoroutinesAndroidToml = LibraryToml(
+    TomlName("kotlin-coroutines-android"),
+    kotlinCoroutinesAndroid,
+    vKotlinCoroutines
+)
+
+val lKotlinSerializationJsonToml = LibraryToml(
+    TomlName("kotlin-serialization-json"),
+    kotlinSerializationJson,
+    vKotlinSerialization
+)
+
+val lKotlinxDatetimeToml = LibraryToml(
+    TomlName("kotlinx-datetime"),
+    kotlinxDatetime,
+    vKotlinxDatetime
+)

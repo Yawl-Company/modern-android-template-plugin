@@ -1,97 +1,105 @@
 package com.yawl.android.template.modern.dependencies
 
-import com.yawl.android.template.core.libs.ConventionPlugin
-import com.yawl.android.template.core.libs.LibsVersionsTomlName
-import com.yawl.android.template.core.libs.Plugin
-import com.yawl.android.template.modern.*
+import com.yawl.android.template.core.libs.ConventionPluginToml
+import com.yawl.android.template.core.libs.TomlName
+import com.yawl.android.template.core.libs.PluginToml
+import com.yawl.android.template.core.libs.inuse.*
 
-fun IMaTemplate.modernAndroidPlugins(): List<Plugin> {
-    return listOf(
-        Plugin(
-            LibsVersionsTomlName("android-application"),
-            "com.android.application",
-            agp
-        ),
-        Plugin(
-            LibsVersionsTomlName("android-library"),
-            "com.android.library",
-            agp
-        ),
-        Plugin(
-            LibsVersionsTomlName("kotlin-compose"),
-            "org.jetbrains.kotlin.plugin.compose",
-            kotlin
-        ),
-        Plugin(
-            LibsVersionsTomlName("kotlin-serialization"),
-            "org.jetbrains.kotlin.plugin.serialization",
-            kotlin
-        ),
-        Plugin(
-            LibsVersionsTomlName("kotlin-parcelable"),
-            "org.jetbrains.kotlin.plugin.parcelize",
-            kotlin
-        ),
-        Plugin(
-            LibsVersionsTomlName("ksp"),
-            "com.google.devtools.ksp",
-            ksp
-        ),
-        Plugin(
-            LibsVersionsTomlName("room"),
-            "androidx.room",
-            room
-        ),
-        Plugin(
-            LibsVersionsTomlName("hilt"),
-            "com.google.dagger.hilt.android",
-            hilt
-        ),
-        Plugin(
-            LibsVersionsTomlName("gradle-secrets"),
-            "com.google.android.libraries.mapsplatform.secrets-gradle-plugin",
-            secrets
-        )
-    )
-}
+val pAndroidApplicationPlugin = PluginToml(
+    TomlName("android-application"),
+    androidApplicationPlugin,
+    vAgp
+)
 
-fun IMaTemplate.modernAndroidConventionPlugins(): List<ConventionPlugin> {
-    return listOf(
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-application"),
-            "convention.kotlin-android-app"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-library"),
-            "convention.kotlin-android-library"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-compose"),
-            "convention.android-compose"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-hilt"),
-            "convention.hilt"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-unit-test"),
-            "convention.unit"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-android-ui-test"),
-            "convention.ui"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-kotlin-serialization"),
-            "convention.serialization"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-kotlin-jvm"),
-            "convention.kotlin-jvm"
-        ),
-        ConventionPlugin(
-            LibsVersionsTomlName("convention-signing"),
-            "convention.signing"
-        )
-    )
-}
+val pAndroidLibraryPlugin = PluginToml(
+    TomlName("android-library"),
+    androidLibraryPlugin,
+    vAgp
+)
+
+val pKotlinComposePlugin = PluginToml(
+    TomlName("kotlin-compose"),
+    kotlinComposePlugin,
+    vKotlin
+)
+
+val pKotlinSerializationPlugin = PluginToml(
+    TomlName("kotlin-serialization"),
+    kotlinSerializationPlugin,
+    vKotlin
+)
+
+val pKotlinParcelablePlugin = PluginToml(
+    TomlName("kotlin-parcelable"),
+    kotlinParcelablePlugin,
+    vKotlin
+)
+
+val pKspPlugin = PluginToml(
+    TomlName("ksp"),
+    kspPlugin,
+    vKsp
+)
+
+val pRoomPlugin = PluginToml(
+    TomlName("room"),
+    roomPlugin,
+    vRoom
+)
+
+val pHiltPlugin = PluginToml(
+    TomlName("hilt"),
+    hiltPlugin,
+    vHilt
+)
+
+val pGradleSecretsPlugin = PluginToml(
+    TomlName("gradle-secrets"),
+    gradleSecretsPlugin,
+    vSecrets
+)
+
+val pConventionAndroidApplication = ConventionPluginToml(
+    TomlName("convention-android-application"),
+    conventionAndroidApplication
+)
+
+val pConventionAndroidLibrary = ConventionPluginToml(
+    TomlName("convention-android-library"),
+    conventionAndroidLibrary
+)
+
+val pConventionAndroidCompose = ConventionPluginToml(
+    TomlName("convention-android-compose"),
+    conventionAndroidCompose
+)
+
+val pConventionAndroidHilt = ConventionPluginToml(
+    TomlName("convention-android-hilt"),
+    conventionAndroidHilt
+)
+
+val pConventionAndroidUnitTest = ConventionPluginToml(
+    TomlName("convention-android-unit-test"),
+    conventionAndroidUnitTest
+)
+
+val pConventionAndroidUiTest = ConventionPluginToml(
+    TomlName("convention-android-ui-test"),
+    conventionAndroidUiTest
+)
+
+val pConventionKotlinSerialization = ConventionPluginToml(
+    TomlName("convention-kotlin-serialization"),
+    conventionKotlinSerialization
+)
+
+val pConventionKotlinJvm = ConventionPluginToml(
+    TomlName("convention-kotlin-jvm"),
+    conventionKotlinJvm
+)
+
+val pConventionSigning = ConventionPluginToml(
+    TomlName("convention-signing"),
+    conventionSigning
+)

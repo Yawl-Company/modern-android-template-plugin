@@ -1,10 +1,14 @@
 package com.yawl.android.template.core.libs
 
+import com.yawl.android.template.core.libs.part.Library
+import com.yawl.android.template.core.libs.part.Plugin
+import com.yawl.android.template.core.libs.part.Version
+
 class LibsToml(
-    val versions: List<Version>,
-    val libraries: List<Library>,
-    val plugins: List<Plugin>,
-    val conventionPlugins: List<ConventionPlugin>,
+    val versions: List<VersionToml>,
+    val libraries: List<LibraryToml>,
+    val plugins: List<PluginToml>,
+    val conventions: List<ConventionPluginToml>,
 ) : Declaratable {
     override fun declaration(): String {
         return buildString {
@@ -20,53 +24,51 @@ class LibsToml(
             appendLine()
             plugins.forEach { appendLine(it.declaration()) }
             appendLine()
-            conventionPlugins.forEach { appendLine(it.declaration()) }
+            conventions.forEach { appendLine(it.declaration()) }
         }
     }
 }
 
-data class ConventionPlugin(
-    private val toml: LibsVersionsTomlName,
-    private val id: String
+data class ConventionPluginToml(
+    private val name: TomlName,
+    private val plugin: Plugin
 ) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val pluginName = toml.name()
-        val pluginDescription = "{ id = \"$id\", version = \"unspecified\" }"
+        val pluginName = name.name()
+        val pluginDescription = "{ id = \"${plugin.id}\", version = \"unspecified\" }"
         return "$pluginName = $pluginDescription"
     }
 
     override fun alias(): String {
-        return "libs.plugins.${toml.alias()}"
+        return "libs.plugins.${name.alias()}"
     }
 }
 
-data class Plugin(
-    private val toml: LibsVersionsTomlName,
-    private val id: String,
-    private val version: Version
+data class PluginToml(
+    private val name: TomlName,
+    private val plugin: Plugin,
+    private val version: VersionToml
 ) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val pluginName = toml.name()
-        val versionName = version.name()
-        val pluginDescription = "{ id = \"$id\", version.ref = \"$versionName\" }"
+        val pluginName = name.name()
+        val pluginDescription = "{ id = \"${plugin.id}\", version.ref = \"${version.name()}\" }"
         return "$pluginName = $pluginDescription"
     }
 
     override fun alias(): String {
-        return "libs.plugins.${toml.alias()}"
+        return "libs.plugins.${name.alias()}"
     }
 }
 
-data class Library(
-    private val toml: LibsVersionsTomlName,
-    private val group: String,
-    private val name: String,
-    private val version: Version
+data class LibraryToml(
+    private val name: TomlName,
+    private val library: Library,
+    private val version: VersionToml
 ) : Declaratable, Aliasable {
     override fun declaration(): String {
-        val libraryName = toml.name()
-        val versionName = version.name()
-        val libraryDescription = "{ group = \"$group\", name = \"$name\", version.ref = \"$versionName\" }"
+        val libraryName = name.name()
+        val libraryDescription =
+            "{ group = \"${library.group}\", name = \"${library.name}\", version.ref = \"${version.name()}\" }"
         return "$libraryName = $libraryDescription"
     }
 
@@ -75,16 +77,16 @@ data class Library(
     }
 }
 
-data class Version(
-    private val name: LibsVersionsTomlName,
-    private val value: String
+data class VersionToml(
+    private val name: TomlName,
+    private val version: Version
 ) : Nameable, Declaratable, Aliasable {
     override fun name(): String {
         return name.name()
     }
 
     override fun declaration(): String {
-        return "${name.declaration()} = \"$value\""
+        return "${name()} = \"${version.value}\""
     }
 
     override fun alias(): String {
@@ -92,7 +94,7 @@ data class Version(
     }
 }
 
-data class LibsVersionsTomlName(
+data class TomlName(
     private val value: String
 ) : Nameable, Declaratable, Aliasable {
     override fun name(): String {

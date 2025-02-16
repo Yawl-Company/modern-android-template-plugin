@@ -41,7 +41,7 @@ abstract class AbstractAndroidTemplate(
             versions = emptyList(),
             plugins = emptyList(),
             libraries = emptyList(),
-            conventionPlugins = emptyList(),
+            conventions = emptyList(),
         )
     }
 }

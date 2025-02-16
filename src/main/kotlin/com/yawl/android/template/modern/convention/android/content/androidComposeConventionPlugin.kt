@@ -29,8 +29,8 @@ fun androidComposeConventionPlugin(): String {
                             dependencies.apply {
                                 add("implementation", platform(bom))
                                 add("androidTestImplementation", platform(bom))
-                                add("implementation", libs.androidx.ui.tooling.preview.get())
-                                add("debugImplementation", libs.androidx.ui.tooling.base.get())
+                                add("implementation", libs.androidx.compose.ui.tooling.preview.get())
+                                add("debugImplementation", libs.androidx.compose.ui.tooling.base.get())
                             }
                         }
                     }

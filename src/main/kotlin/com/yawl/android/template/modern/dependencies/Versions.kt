@@ -1,86 +1,155 @@
 package com.yawl.android.template.modern.dependencies
 
-import com.yawl.android.template.core.libs.LibsVersionsTomlName
-import com.yawl.android.template.core.libs.Version
-import com.yawl.android.template.modern.IMaTemplate
+import com.yawl.android.template.core.libs.TomlName
+import com.yawl.android.template.core.libs.VersionToml
+import com.yawl.android.template.core.libs.part.Version
 
-// build core
-val agp = Version(LibsVersionsTomlName("agp"), "8.7.3")
-val java = Version(LibsVersionsTomlName("java"), "17")
-val kotlin = Version(LibsVersionsTomlName("kotlin"), "2.1.0")
-val kotlinLanguageVersion = Version(LibsVersionsTomlName("kotlinLanguageVersion"), "1.9")
+val vAgp = VersionToml(
+    TomlName("agp"),
+    Version("8.7.3")
+)
 
-// build configuration
-val compileSdk = Version(LibsVersionsTomlName("compileSdk"), "35")
-val targetSdk = Version(LibsVersionsTomlName("targetSdk"), "35")
-val minSdk = Version(LibsVersionsTomlName("minSdk"), "24")
-val buildTools = Version(LibsVersionsTomlName("buildTools"), "34.0.0")
+val vJava = VersionToml(
+    TomlName("java"),
+    Version("17")
+)
 
-// testing
-val junit = Version(LibsVersionsTomlName("junit"), "4.13.2")
-val junitVersion = Version(LibsVersionsTomlName("junitVersion"), "1.2.1")
-val testRules = Version(LibsVersionsTomlName("testRules"), "1.6.1")
-val testRunner = Version(LibsVersionsTomlName("testRunner"), "1.6.2")
-val espressoCore = Version(LibsVersionsTomlName("espressoCore"), "3.6.1")
+val vKotlin = VersionToml(
+    TomlName("kotlin"),
+    Version("2.1.0")
+)
 
-// compose
-val activityCompose = Version(LibsVersionsTomlName("activityCompose"), "1.10.0")
-val composeBom = Version(LibsVersionsTomlName("composeBom"), "2025.02.00")
-val androidxComposeCompiler = Version(LibsVersionsTomlName("androidxComposeCompiler"), "1.5.12")
-val androidxComposeNavigation = Version(LibsVersionsTomlName("androidxComposeNavigation"), "2.8.7")
+val vKotlinLanguageVersion = VersionToml(
+    TomlName("kotlinLanguageVersion"),
+    Version("1.9")
+)
 
-// android-ktx
-val coreKtx = Version(LibsVersionsTomlName("coreKtx"), "1.15.0")
-val lifecycleRuntimeKtx = Version(LibsVersionsTomlName("lifecycleRuntimeKtx"), "2.8.7")
+val vCompileSdk = VersionToml(
+    TomlName("compileSdk"),
+    Version("35")
+)
 
-// network
-val okhttpBom = Version(LibsVersionsTomlName("okhttpBom"), "4.12.0")
-val retrofit = Version(LibsVersionsTomlName("retrofit"), "2.11.0")
+val vTargetSdk = VersionToml(
+    TomlName("targetSdk"),
+    Version("35")
+)
 
-// other
-val kotlinCoroutines = Version(LibsVersionsTomlName("kotlinCoroutines"), "1.9.0")
-val kotlinSerialization = Version(LibsVersionsTomlName("kotlinSerialization"), "1.7.3")
-val kotlinxDatetime = Version(LibsVersionsTomlName("kotlinxDatetime"), "0.5.0")
-val ksp = Version(LibsVersionsTomlName("ksp"), "2.1.0-1.0.29")
-val room = Version(LibsVersionsTomlName("room"), "2.6.1")
-val hilt = Version(LibsVersionsTomlName("hilt"), "2.53")
-val hiltCompiler = Version(LibsVersionsTomlName("hilt-compiler"), "1.2.0")
-val javax = Version(LibsVersionsTomlName("javax-inject"), "1")
+val vMinSdk = VersionToml(
+    TomlName("minSdk"),
+    Version("24")
+)
 
-// build
-val secrets = Version(LibsVersionsTomlName("secrets"), "2.0.1")
+val vBuildTools = VersionToml(
+    TomlName("buildTools"),
+    Version("34.0.0")
+)
 
-fun IMaTemplate.modernAndroidVersions(): List<Version> {
-    return listOf(
-        agp,
-        java,
-        kotlin,
-        kotlinLanguageVersion,
-        compileSdk,
-        targetSdk,
-        minSdk,
-        buildTools,
-        junit,
-        junitVersion,
-        testRules,
-        testRunner,
-        espressoCore,
-        activityCompose,
-        composeBom,
-        androidxComposeCompiler,
-        androidxComposeNavigation,
-        coreKtx,
-        lifecycleRuntimeKtx,
-        okhttpBom,
-        retrofit,
-        kotlinCoroutines,
-        kotlinSerialization,
-        kotlinxDatetime,
-        ksp,
-        room,
-        hilt,
-        hiltCompiler,
-        javax,
-        secrets
-    )
-}
+val vJunit = VersionToml(
+    TomlName("junit"),
+    Version("4.13.2")
+)
+
+val vJunitVersion = VersionToml(
+    TomlName("junitVersion"),
+    Version("1.2.1")
+)
+
+val vTestRules = VersionToml(
+    TomlName("testRules"),
+    Version("1.6.1")
+)
+
+val vTestRunner = VersionToml(
+    TomlName("testRunner"),
+    Version("1.6.2")
+)
+
+val vEspressoCore = VersionToml(
+    TomlName("espressoCore"),
+    Version("3.6.1")
+)
+
+val vActivityCompose = VersionToml(
+    TomlName("activityCompose"),
+    Version("1.10.0")
+)
+
+val vComposeBom = VersionToml(
+    TomlName("compose-bom"),
+    Version("2025.01.01")
+)
+
+val vAndroidxComposeCompiler = VersionToml(
+    TomlName("androidxComposeCompiler"),
+    Version("1.5.12")
+)
+
+val vAndroidxComposeNavigation = VersionToml(
+    TomlName("androidxComposeNavigation"),
+    Version("2.8.6")
+)
+
+val vCoreKtx = VersionToml(
+    TomlName("coreKtx"),
+    Version("1.15.0")
+)
+
+val vLifecycleRuntimeKtx = VersionToml(
+    TomlName("lifecycleRuntimeKtx"),
+    Version("2.8.7")
+)
+
+val vOkhttpBom = VersionToml(
+    TomlName("okhttpBom"),
+    Version("4.12.0")
+)
+
+val vRetrofit = VersionToml(
+    TomlName("retrofit"),
+    Version("2.11.0")
+)
+
+val vKotlinCoroutines = VersionToml(
+    TomlName("kotlinCoroutines"),
+    Version("1.9.0")
+)
+
+val vKotlinSerialization = VersionToml(
+    TomlName("kotlinSerialization"),
+    Version("1.7.3")
+)
+
+val vKotlinxDatetime = VersionToml(
+    TomlName("kotlinxDatetime"),
+    Version("0.5.0")
+)
+
+val vKsp = VersionToml(
+    TomlName("ksp"),
+    Version("2.1.0-1.0.29")
+)
+
+val vRoom = VersionToml(
+    TomlName("room"),
+    Version("2.6.1")
+)
+
+val vHilt = VersionToml(
+    TomlName("hilt"),
+    Version("2.53")
+)
+
+val vHiltCompiler = VersionToml(
+    TomlName("hilt-compiler"),
+    Version("1.2.0")
+)
+
+val vJavax = VersionToml(
+    TomlName("javax-inject"),
+    Version("1")
+)
+
+val vSecrets = VersionToml(
+    TomlName("secrets"),
+    Version("2.0.1")
+)
