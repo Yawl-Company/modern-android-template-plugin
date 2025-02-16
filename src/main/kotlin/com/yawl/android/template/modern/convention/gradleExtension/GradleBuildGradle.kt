@@ -1,11 +1,15 @@
 package com.yawl.android.template.modern.convention.gradleExtension
 
+import com.yawl.android.template.core.convention.conventionPluginsRegistration
+import com.yawl.android.template.core.libs.usage.*
 import com.yawl.android.template.modern.IModernTemplate
 
 internal fun gradleBuildGradle(
     template: IModernTemplate
 ): String {
-    return """
+    return buildString {
+        appendLine(
+        """
         plugins {
             kotlin("jvm")
             `java-gradle-plugin`
@@ -17,18 +21,20 @@ internal fun gradleBuildGradle(
             compileOnly(gradleApi())
             // workaround for https://github.com/gradle/gradle/issues/15383
             api(files((libs as Any).javaClass.superclass.protectionDomain.codeSource.location))
-        }${
-        if (template.gradleSecrets()) "\n" +
-        """
-        gradlePlugin {
-            plugins {
-                create("gradle-secrets") {
-                    id = "convention.gradle-secrets"
-                    implementationClass = "com.convention.GradleSecretsConventionPlugin"
-                }
-            }
         }
         """
-        else ""}
-    """.trimIndent()
+        )
+
+        appendLine()
+
+        appendLine(
+            conventionPluginsRegistration(
+                listOfNotNull(
+                    template.gradleSecrets().takeIf { it }?.let {
+                        conventionGradleSecrets to "com.convention.GradleSecretsConventionPlugin"
+                    },
+                )
+            )
+        )
+    }
 }
