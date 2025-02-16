@@ -11,7 +11,7 @@ import com.yawl.android.template.modern.convention.kotlin.content.kotlinSerializ
 import com.yawl.android.template.modern.convention.kotlin.content.kspConventionPlugin
 import java.io.File
 
-fun RecipeExecutor.kotlinConventionWriter(
+fun RecipeExecutor.setupKotlinConvention(
     parentDirectory: File
 ) {
     createModule(

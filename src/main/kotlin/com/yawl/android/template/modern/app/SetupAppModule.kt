@@ -10,11 +10,11 @@ import com.yawl.android.template.modern.dependencies.toml.*
 fun RecipeExecutor.setupAppModule(
     template: AndroidTemplate
 ) {
-    appBuildGradleWriter(template = template)
-    appMainActivityWriter(template = template)
+    setupAppBuildGradle(template = template)
+    setupAppMainActivity(template = template)
 }
 
-fun RecipeExecutor.appBuildGradleWriter(
+fun RecipeExecutor.setupAppBuildGradle(
     template: AndroidTemplate,
 ) {
     buildGradleKts(
@@ -42,7 +42,7 @@ fun RecipeExecutor.appBuildGradleWriter(
     )
 }
 
-fun RecipeExecutor.appMainActivityWriter(
+fun RecipeExecutor.setupAppMainActivity(
     template: AndroidTemplate
 ) {
     val activityPath = template

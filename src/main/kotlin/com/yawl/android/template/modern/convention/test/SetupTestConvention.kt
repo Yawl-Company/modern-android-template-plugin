@@ -6,7 +6,7 @@ import com.yawl.android.template.modern.convention.test.content.androidUiTestCon
 import com.yawl.android.template.modern.convention.test.content.androidUnitTestConventionPlugin
 import java.io.File
 
-fun RecipeExecutor.testConventionWriter(
+fun RecipeExecutor.setupTestConvention(
     parentDirectory: File
 ) {
     createModule(

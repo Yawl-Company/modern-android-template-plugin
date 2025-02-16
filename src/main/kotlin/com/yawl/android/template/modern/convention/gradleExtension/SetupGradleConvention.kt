@@ -7,7 +7,7 @@ import com.yawl.android.template.modern.convention.gradleExtension.content.gradl
 import com.yawl.android.template.modern.convention.gradleExtension.content.versionCatalog
 import java.io.File
 
-fun RecipeExecutor.gradleConventionWriter(
+fun RecipeExecutor.setupGradleConvention(
     template: IModernTemplate,
     parentDirectory: File
 ) {

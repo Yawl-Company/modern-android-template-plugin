@@ -5,7 +5,7 @@ import com.yawl.android.template.modern.convention.createModule
 import com.yawl.android.template.modern.convention.signing.content.androidAppSignConventionPlugin
 import java.io.File
 
-fun RecipeExecutor.signingConventionWriter(
+fun RecipeExecutor.setupSigningConvention(
     parentDirectory: File
 ) {
     createModule(

@@ -4,11 +4,11 @@ import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.core.gradle.settingsGradleKts
 import com.yawl.android.template.modern.IModernTemplate
-import com.yawl.android.template.modern.convention.android.androidConventionWriter
-import com.yawl.android.template.modern.convention.gradleExtension.gradleConventionWriter
-import com.yawl.android.template.modern.convention.kotlin.kotlinConventionWriter
-import com.yawl.android.template.modern.convention.signing.signingConventionWriter
-import com.yawl.android.template.modern.convention.test.testConventionWriter
+import com.yawl.android.template.modern.convention.android.setupAndroidConvention
+import com.yawl.android.template.modern.convention.gradleExtension.setupGradleConvention
+import com.yawl.android.template.modern.convention.kotlin.setupKotlinConvention
+import com.yawl.android.template.modern.convention.signing.setupSigningConvention
+import com.yawl.android.template.modern.convention.test.setupTestConvention
 
 fun RecipeExecutor.setupConventions(
     template: IModernTemplate
@@ -27,21 +27,21 @@ fun RecipeExecutor.setupConventions(
         content = buildGradle(),
         force = false
     )
-    androidConventionWriter(
+    setupAndroidConvention(
         template = template,
         parentDirectory = directory
     )
-    gradleConventionWriter(
+    setupGradleConvention(
         template = template,
         parentDirectory = directory
     )
-    kotlinConventionWriter(
+    setupKotlinConvention(
         parentDirectory = directory
     )
-    signingConventionWriter(
+    setupSigningConvention(
         parentDirectory = directory
     )
-    testConventionWriter(
+    setupTestConvention(
         parentDirectory = directory
     )
 }

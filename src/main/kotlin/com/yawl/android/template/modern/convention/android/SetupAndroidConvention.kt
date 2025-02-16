@@ -6,7 +6,7 @@ import com.yawl.android.template.modern.convention.createModule
 import com.yawl.android.template.modern.convention.android.content.*
 import java.io.File
 
-fun RecipeExecutor.androidConventionWriter(
+fun RecipeExecutor.setupAndroidConvention(
     template: IModernTemplate,
     parentDirectory: File
 ) {
