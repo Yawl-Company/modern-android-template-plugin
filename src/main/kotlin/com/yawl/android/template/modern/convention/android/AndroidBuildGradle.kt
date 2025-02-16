@@ -16,11 +16,11 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
             implementation(projects.gradleExtension)
             implementation(libs.android.gradlePlugin)
             implementation(libs.ksp.gradlePlugin)
-            ${
-        if (template.room()) """
-                    implementation(libs.room.gradlePlugin)
-                """ else ""
-    }
+            ${if (template.room()) 
+            """
+            implementation(libs.room.gradlePlugin)
+            """ 
+            else ""}
         }
 
         gradlePlugin {
@@ -39,24 +39,22 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
                     id = "convention.android-compose"
                     implementationClass = "com.convention.compose.AndroidComposeConventionPlugin"
                 }
-
-                ${
-        if (template.hilt()) """
-                    create("hilt") {
-                        id = "convention.hilt"
-                        implementationClass = "com.convention.HiltConventionPlugin"
-                    }
-                """ else ""
-    }
-
-                ${
-        if (template.room()) """
-                    create("room") {
-                        id = "convention.room"
-                        implementationClass = "com.convention.AndroidRoomConventionPlugin"
-                    }
-                """ else ""
-    }
+                ${if (template.hilt()) "\n" + 
+                """
+                create("hilt") {
+                    id = "convention.hilt"
+                    implementationClass = "com.convention.HiltConventionPlugin"
+                }
+                """ 
+                else ""}
+                ${if (template.room()) "\n" + 
+                """
+                create("room") {
+                    id = "convention.room"
+                    implementationClass = "com.convention.AndroidRoomConventionPlugin"
+                }
+                """ 
+                else ""}
             }
         }
     """.trimIndent()

@@ -20,6 +20,7 @@ internal fun testBuildGradle(): String {
                     id = "convention.unit"
                     implementationClass = "com.convention.AndroidUnitTestConventionPlugin"
                 }
+                
                 create("ui") {
                     id = "convention.ui"
                     implementationClass = "com.convention.AndroidUiTestConventionPlugin"
