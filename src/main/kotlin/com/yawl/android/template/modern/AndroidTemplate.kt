@@ -2,6 +2,7 @@ package com.yawl.android.template.modern
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.defaultPackageNameParameter
+import com.yawl.android.template.core.project.GradleProperties
 import com.yawl.android.template.modern.dependencies.toml.vMinSdk
 import java.io.File
 
@@ -52,14 +53,40 @@ val modernAndroidTemplate
             default = false
         }
 
+
+        val gradleParallel = booleanParameter {
+            name = "Enable Parallel Execution"
+            default = true
+        }
+
+        val gradleCaching = booleanParameter {
+            name = "Enable Build Caching"
+            default = true
+        }
+
+        val gradleConfigureOnDemand = booleanParameter {
+            name = "Enable Configure on Demand"
+            default = false
+        }
+
+        val gradleConfigurationCache = booleanParameter {
+            name = "Enable Configuration Cache"
+            default = true
+        }
+
         widgets(
             PackageNameWidget(packageName),
             LabelWidget("This template uses convention plugins for build logic and a TOML file for dependency management."),
-            LabelWidget("Enable or disable features as needed."),
+            LabelWidget("Enable or disable features as needed:"),
             CheckBoxWidget(useHilt),
             CheckBoxWidget(useRoom),
             CheckBoxWidget(useRetrofit),
-            CheckBoxWidget(useGradleSecrets)
+            CheckBoxWidget(useGradleSecrets),
+            LabelWidget("Enable or disable Gradle properties:"),
+            CheckBoxWidget(gradleParallel),
+            CheckBoxWidget(gradleCaching),
+            CheckBoxWidget(gradleConfigureOnDemand),
+            CheckBoxWidget(gradleConfigurationCache),
         )
 
         thumb {
@@ -75,7 +102,13 @@ val modernAndroidTemplate
                     hilt = useHilt.value,
                     room = useRoom.value,
                     retrofit = useRetrofit.value,
-                    gradleSecrets = useGradleSecrets.value
+                    gradleSecrets = useGradleSecrets.value,
+                    gradleProperties = GradleProperties(
+                        caching = gradleCaching.value,
+                        parallel = gradleParallel.value,
+                        configurationCache = gradleConfigurationCache.value,
+                        configureondemand = gradleConfigureOnDemand.value
+                    )
                 ),
             )
         }
