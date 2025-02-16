@@ -1,6 +1,4 @@
-package com.yawl.android.template.modern.project.content
-
-import com.yawl.android.template.core.libs.PluginToml
+package com.yawl.android.template.core.libs
 
 fun List<PluginToml>.projectGradle(): String {
     val spaces = "\n    "
