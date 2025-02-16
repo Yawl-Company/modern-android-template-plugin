@@ -21,7 +21,7 @@ val modernAndroidTemplate
             TemplateConstraint.Compose
         )
 
-        category = Category.Application
+        category = Category.Compose
 
         formFactor = FormFactor.Mobile
 

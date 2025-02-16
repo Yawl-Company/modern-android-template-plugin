@@ -1,13 +1,14 @@
 package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.android.tools.idea.wizard.template.impl.activities.androidTVActivity.res.values.themesXml
 import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.app.buildAppBuildGradleKts
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*
 import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
+import com.yawl.android.template.core.extension.saveFile
+import com.yawl.android.template.modern.app.content.themeXml
 
 fun RecipeExecutor.setupAppModule(
     template: AndroidTemplate
@@ -89,23 +90,24 @@ fun RecipeExecutor.setupAppManifest(
         packageName = template.packageName(),
         isLauncher = true,
         hasNoActionBar = true,
-        generateActivityTitle = true
+        generateActivityTitle = false
     )
 }
 
 fun RecipeExecutor.setupAppTheme(
     template: AndroidTemplate
 ) {
-    mergeXml(
-        source = themesXml(
+    saveFile(
+        content = themeXml(
             themeName = template
                 .template()
                 .themesData
                 .main
                 .name
         ),
-        to = template
+        source = template
             .resourcesRoot()
-            .resolve("values/themes.xml")
+            .resolve("values/themes.xml"),
+        force = true
     )
 }
