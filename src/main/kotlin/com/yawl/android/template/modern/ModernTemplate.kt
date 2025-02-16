@@ -11,7 +11,7 @@ class ModernTemplate(
     private val hilt: Boolean,
     private val room: Boolean,
     private val gradleSecrets: Boolean
-) : AbstractAndroidTemplate(moduleData), IMaTemplate {
+) : AbstractAndroidTemplate(moduleData), IModernTemplate {
     override fun hilt() = hilt
 
     override fun room() = room
@@ -28,7 +28,7 @@ class ModernTemplate(
     }
 }
 
-interface IMaTemplate : AndroidTemplate {
+interface IModernTemplate : AndroidTemplate {
     fun hilt(): Boolean
 
     fun room(): Boolean
