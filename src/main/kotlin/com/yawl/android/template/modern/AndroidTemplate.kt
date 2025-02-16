@@ -2,6 +2,7 @@ package com.yawl.android.template.modern
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.defaultPackageNameParameter
+import com.yawl.android.template.modern.dependencies.toml.vMinSdk
 import java.io.File
 
 val modernAndroidTemplate
@@ -10,7 +11,9 @@ val modernAndroidTemplate
 
         description = "Kickstart your development"
 
-        minApi = 24
+        minApi = vMinSdk
+            .value()
+            .toIntOrNull() ?: 24
 
         constraints = listOf(
             TemplateConstraint.AndroidX,

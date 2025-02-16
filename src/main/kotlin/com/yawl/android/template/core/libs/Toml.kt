@@ -92,7 +92,7 @@ data class LibraryToml(
 data class VersionToml(
     private val name: TomlName,
     private val version: Version
-) : Nameable, Declaratable, Aliasable {
+) : Nameable, Declaratable, Aliasable, Valuable<String> {
     override fun name(): String {
         return name.name()
     }
@@ -103,6 +103,10 @@ data class VersionToml(
 
     override fun alias(): String {
         return "libs.versions.${name.alias()}"
+    }
+
+    override fun value(): String {
+        return version.value
     }
 }
 
@@ -132,6 +136,10 @@ interface Aliasable {
 
 interface Nameable {
     fun name(): String
+}
+
+interface Valuable<T> {
+    fun value(): T
 }
 
 interface PluginBuildGradle {
