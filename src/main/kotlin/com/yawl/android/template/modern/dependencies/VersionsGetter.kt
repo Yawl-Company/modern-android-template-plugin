@@ -78,6 +78,7 @@ private fun MutableList<VersionToml>.addRoom() {
 private fun MutableList<VersionToml>.addHiltVersions() {
     add(vHilt)
     add(vHiltCompiler)
+    add(vJavax)
 }
 
 private fun MutableList<VersionToml>.addSecrets() {
