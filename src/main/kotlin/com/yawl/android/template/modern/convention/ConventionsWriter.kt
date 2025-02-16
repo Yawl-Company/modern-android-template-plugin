@@ -1,9 +1,9 @@
 package com.yawl.android.template.modern.convention
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.core.write.settingsGradleKtsWriter
+import com.yawl.android.template.modern.IModernTemplate
 import com.yawl.android.template.modern.convention.android.androidConventionWriter
 import com.yawl.android.template.modern.convention.gradleExtension.gradleConventionWriter
 import com.yawl.android.template.modern.convention.kotlin.kotlinConventionWriter
@@ -11,7 +11,7 @@ import com.yawl.android.template.modern.convention.signing.signingConventionWrit
 import com.yawl.android.template.modern.convention.test.testConventionWriter
 
 fun RecipeExecutor.conventionsWriter(
-    template: AndroidTemplate
+    template: IModernTemplate
 ) {
     val moduleName = "build-logic"
     val directory = template
@@ -28,9 +28,11 @@ fun RecipeExecutor.conventionsWriter(
         force = false
     )
     androidConventionWriter(
+        template = template,
         parentDirectory = directory
     )
     gradleConventionWriter(
+        template = template,
         parentDirectory = directory
     )
     kotlinConventionWriter(

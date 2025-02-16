@@ -1,17 +1,21 @@
 package com.yawl.android.template.modern.convention.android
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.yawl.android.template.modern.IModernTemplate
 import com.yawl.android.template.modern.convention.createModule
 import com.yawl.android.template.modern.convention.android.content.*
 import java.io.File
 
 fun RecipeExecutor.androidConventionWriter(
+    template: IModernTemplate,
     parentDirectory: File
 ) {
     createModule(
         parentDirectory = parentDirectory,
         moduleName = "android",
-        buildGradleSource = androidBuildGradle(),
+        buildGradleSource = androidBuildGradle(
+            template = template
+        ),
         content = { directory ->
             save(
                 source = androidApplicationConventionPlugin(),
@@ -33,16 +37,20 @@ fun RecipeExecutor.androidConventionWriter(
                 to = directory
                     .resolve("AndroidComposeConventionPlugin.kt")
             )
-            save(
-                source = androidRoomConventionPlugin(),
-                to = directory
-                    .resolve("AndroidRoomConventionPlugin.kt")
-            )
-            save(
-                source = hiltConventionPlugin(),
-                to = directory
-                    .resolve("HiltConventionPlugin.kt")
-            )
+            if (template.room()) {
+                save(
+                    source = androidRoomConventionPlugin(),
+                    to = directory
+                        .resolve("AndroidRoomConventionPlugin.kt")
+                )
+            }
+            if (template.hilt()) {
+                save(
+                    source = hiltConventionPlugin(),
+                    to = directory
+                        .resolve("HiltConventionPlugin.kt")
+                )
+            }
         }
     )
 }

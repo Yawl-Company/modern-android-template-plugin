@@ -1,6 +1,10 @@
 package com.yawl.android.template.modern.convention.gradleExtension
 
-internal fun gradleBuildGradle(): String {
+import com.yawl.android.template.modern.IModernTemplate
+
+internal fun gradleBuildGradle(
+    template: IModernTemplate
+): String {
     return """
         plugins {
             kotlin("jvm")
@@ -15,13 +19,15 @@ internal fun gradleBuildGradle(): String {
             implementation(files((libs as Any).javaClass.superclass.protectionDomain.codeSource.location))
         }
 
-        gradlePlugin {
-            plugins {
-                create("gradle-secrets") {
-                    id = "convention.gradle-secrets"
-                    implementationClass = "com.convention.GradleSecretsConventionPlugin"
+        ${if (template.gradleSecrets()) """
+            gradlePlugin {
+                plugins {
+                    create("gradle-secrets") {
+                        id = "convention.gradle-secrets"
+                        implementationClass = "com.convention.GradleSecretsConventionPlugin"
+                    }
                 }
             }
-        }
+        """ else ""}
     """.trimIndent()
 }

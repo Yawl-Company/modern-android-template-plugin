@@ -1,6 +1,8 @@
 package com.yawl.android.template.modern.convention.android
 
-internal fun androidBuildGradle(): String {
+import com.yawl.android.template.modern.IModernTemplate
+
+internal fun androidBuildGradle(template: IModernTemplate): String {
     return """
         plugins {
             kotlin("jvm")
@@ -36,15 +38,23 @@ internal fun androidBuildGradle(): String {
                     implementationClass = "com.convention.compose.AndroidComposeConventionPlugin"
                 }
 
-                create("hilt") {
-                    id = "convention.hilt"
-                    implementationClass = "com.convention.HiltConventionPlugin"
-                }
+                ${
+        if (template.hilt()) """
+                    create("hilt") {
+                        id = "convention.hilt"
+                        implementationClass = "com.convention.HiltConventionPlugin"
+                    }
+                """ else ""
+    }
 
-                create("room") {
-                    id = "convention.room"
-                    implementationClass = "com.convention.AndroidRoomConventionPlugin"
-                }
+                ${
+        if (template.room()) """
+                    create("room") {
+                        id = "convention.room"
+                        implementationClass = "com.convention.AndroidRoomConventionPlugin"
+                    }
+                """ else ""
+    }
             }
         }
     """.trimIndent()
