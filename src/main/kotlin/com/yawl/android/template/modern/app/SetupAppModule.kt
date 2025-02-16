@@ -7,6 +7,7 @@ import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*
 import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
+import com.yawl.android.template.core.extension.deleteFile
 import com.yawl.android.template.core.extension.saveFile
 import com.yawl.android.template.modern.app.content.themeXml
 
@@ -19,6 +20,9 @@ fun RecipeExecutor.setupAppModule(
         activityName = activityName
     )
     setupAppTheme(
+        template = template
+    )
+    removeUnusedResources(
         template = template
     )
     setupLauncherActivity(
@@ -109,5 +113,15 @@ fun RecipeExecutor.setupAppTheme(
             .resourcesRoot()
             .resolve("values/themes.xml"),
         force = true
+    )
+}
+
+fun RecipeExecutor.removeUnusedResources(
+    template: AndroidTemplate
+) {
+    deleteFile(
+        source = template
+            .resourcesRoot()
+            .resolve("values/colors.xml"),
     )
 }
