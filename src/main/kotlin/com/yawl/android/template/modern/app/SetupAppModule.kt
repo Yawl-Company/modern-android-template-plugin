@@ -1,6 +1,7 @@
 package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
+import com.android.tools.idea.wizard.template.impl.activities.androidTVActivity.res.values.themesXml
 import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.app.buildAppBuildGradleKts
 import com.yawl.android.template.core.gradle.buildGradleKts
@@ -12,18 +13,12 @@ fun RecipeExecutor.setupAppModule(
     template: AndroidTemplate
 ) {
     val activityName = "MainActivity"
-    val moduleData = template.template()
-    generateManifest(
-        moduleData = moduleData,
-        activityClass = activityName,
-        activityThemeName = moduleData
-            .themesData
-            .main
-            .name,
-        packageName = template.packageName(),
-        isLauncher = true,
-        hasNoActionBar = true,
-        generateActivityTitle = true
+    setupAppManifest(
+        template = template,
+        activityName = activityName
+    )
+    setupAppTheme(
+        template = template
     )
     setupLauncherActivity(
         template = template,
@@ -77,4 +72,40 @@ fun RecipeExecutor.setupLauncherActivity(
         to = activityPath
     )
     open(activityPath)
+}
+
+fun RecipeExecutor.setupAppManifest(
+    template: AndroidTemplate,
+    activityName: String,
+) {
+    val moduleData = template.template()
+    generateManifest(
+        moduleData = moduleData,
+        activityClass = activityName,
+        activityThemeName = moduleData
+            .themesData
+            .main
+            .name,
+        packageName = template.packageName(),
+        isLauncher = true,
+        hasNoActionBar = true,
+        generateActivityTitle = true
+    )
+}
+
+fun RecipeExecutor.setupAppTheme(
+    template: AndroidTemplate
+) {
+    mergeXml(
+        source = themesXml(
+            themeName = template
+                .template()
+                .themesData
+                .main
+                .name
+        ),
+        to = template
+            .resourcesRoot()
+            .resolve("values/themes.xml")
+    )
 }

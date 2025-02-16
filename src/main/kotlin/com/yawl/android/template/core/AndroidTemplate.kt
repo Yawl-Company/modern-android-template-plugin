@@ -18,6 +18,8 @@ interface AndroidTemplate {
 
     fun sourcesRoot(): File
 
+    fun resourcesRoot(): File
+
 }
 
 abstract class AbstractAndroidTemplate(
@@ -33,6 +35,9 @@ abstract class AbstractAndroidTemplate(
 
     override fun sourcesRoot(): File = moduleData
         .srcDir
+
+    override fun resourcesRoot(): File = moduleData
+        .resDir
 
     override fun packageName(): String = moduleData
         .packageName
