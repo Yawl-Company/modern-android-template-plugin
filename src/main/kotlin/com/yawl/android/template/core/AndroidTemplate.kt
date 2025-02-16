@@ -6,6 +6,8 @@ import java.io.File
 
 interface AndroidTemplate {
 
+    fun template(): ModuleTemplateData
+
     fun libraries(): LibsToml
 
     fun projectName(): String
@@ -21,6 +23,10 @@ interface AndroidTemplate {
 abstract class AbstractAndroidTemplate(
     private val moduleData: ModuleTemplateData
 ) : AndroidTemplate {
+    override fun template(): ModuleTemplateData {
+        return moduleData
+    }
+
     override fun projectRoot(): File = moduleData
         .projectTemplateData
         .rootDir
