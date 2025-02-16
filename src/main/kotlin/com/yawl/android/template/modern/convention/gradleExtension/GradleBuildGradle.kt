@@ -18,16 +18,17 @@ internal fun gradleBuildGradle(
             // workaround for https://github.com/gradle/gradle/issues/15383
             api(files((libs as Any).javaClass.superclass.protectionDomain.codeSource.location))
         }
-
-        ${if (template.gradleSecrets()) """
-            gradlePlugin {
-                plugins {
-                    create("gradle-secrets") {
-                        id = "convention.gradle-secrets"
-                        implementationClass = "com.convention.GradleSecretsConventionPlugin"
-                    }
+        ${if (template.gradleSecrets()) "\n" +
+        """
+        gradlePlugin {
+            plugins {
+                create("gradle-secrets") {
+                    id = "convention.gradle-secrets"
+                    implementationClass = "com.convention.GradleSecretsConventionPlugin"
                 }
             }
-        """ else ""}
+        }
+        """
+        else ""}
     """.trimIndent()
 }
