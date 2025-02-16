@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.project
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.libs.projectGradle
+import com.yawl.android.template.core.extension.projectGradle
 import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.core.write.settingsGradleKtsWriter
 import com.yawl.android.template.modern.IMaTemplate
