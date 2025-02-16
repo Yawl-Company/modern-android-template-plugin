@@ -7,17 +7,19 @@ import com.yawl.android.template.modern.dependencies.toml.*
 fun IModernTemplate.modernAndroidLibraries(): List<LibraryToml> {
     return buildList {
         addBuildPlugins()
+        addAndroidKtxLibraries()
+        addComposeLibraries()
+        addTestingLibraries()
+        if (this@modernAndroidLibraries.retrofit()) {
+            addNetworkLibraries()
+        }
         if (this@modernAndroidLibraries.room()) {
             addRoomLibraries()
         }
         if (this@modernAndroidLibraries.hilt()) {
             addHiltLibraries()
         }
-        addComposeLibraries()
-        addAndroidKtxLibraries()
-        addNetworkLibraries()
-        addTestingLibraries()
-        addOtherLibraries()
+        kotlinLibraries()
     }
 }
 
@@ -44,14 +46,6 @@ private fun MutableList<LibraryToml>.addAndroidKtxLibraries() {
     add(lLifecycleViewModelKtxToml)
 }
 
-private fun MutableList<LibraryToml>.addNetworkLibraries() {
-    add(lOkhttpBomToml)
-    add(lOkhttpToml)
-    add(lOkhttpLoggingToml)
-    add(lRetrofitToml)
-    add(lRetrofitConverterJsonToml)
-}
-
 private fun MutableList<LibraryToml>.addTestingLibraries() {
     add(lJunitToml)
     add(lAndroidJUnitToml)
@@ -75,7 +69,15 @@ private fun MutableList<LibraryToml>.addRoomLibraries() {
     add(lRoomCompilerToml)
 }
 
-private fun MutableList<LibraryToml>.addOtherLibraries() {
+private fun MutableList<LibraryToml>.addNetworkLibraries() {
+    add(lOkhttpBomToml)
+    add(lOkhttpToml)
+    add(lOkhttpLoggingToml)
+    add(lRetrofitToml)
+    add(lRetrofitConverterJsonToml)
+}
+
+private fun MutableList<LibraryToml>.kotlinLibraries() {
     add(lCoroutinesCoreToml)
     add(lCoroutinesAndroidToml)
     add(lKotlinSerializationJsonToml)

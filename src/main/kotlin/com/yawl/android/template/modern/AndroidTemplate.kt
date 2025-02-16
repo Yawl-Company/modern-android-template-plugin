@@ -42,6 +42,11 @@ val modernAndroidTemplate
             default = false
         }
 
+        val useRetrofitWithOkHttp = booleanParameter {
+            name = "Use Retrofit with OkHttp"
+            default = false
+        }
+
         val useGradleSecrets = booleanParameter {
             name = "Use Gradle Secrets"
             default = false
@@ -49,8 +54,9 @@ val modernAndroidTemplate
 
         widgets(
             PackageNameWidget(packageName),
-            CheckBoxWidget(useRoom),
             CheckBoxWidget(useHilt),
+            CheckBoxWidget(useRoom),
+            CheckBoxWidget(useRetrofitWithOkHttp),
             CheckBoxWidget(useGradleSecrets)
         )
 
@@ -66,6 +72,7 @@ val modernAndroidTemplate
                     moduleData = data as ModuleTemplateData,
                     hilt = useHilt.value,
                     room = useRoom.value,
+                    retrofit = useRetrofitWithOkHttp.value,
                     gradleSecrets = useGradleSecrets.value
                 ),
             )

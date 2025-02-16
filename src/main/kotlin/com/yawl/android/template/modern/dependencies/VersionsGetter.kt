@@ -11,13 +11,15 @@ fun IModernTemplate.modernAndroidVersions(): List<VersionToml> {
         addTestingVersions()
         addComposeVersions()
         addAndroidKtxVersions()
-        addNetworkVersions()
         addKotlin()
+        if (this@modernAndroidVersions.hilt()) {
+            addHiltVersions()
+        }
         if (this@modernAndroidVersions.room()) {
             addRoom()
         }
-        if (this@modernAndroidVersions.hilt()) {
-            addHiltVersions()
+        if (this@modernAndroidVersions.retrofit()) {
+            addNetworkVersions()
         }
         if (this@modernAndroidVersions.gradleSecrets()) {
             addSecrets()

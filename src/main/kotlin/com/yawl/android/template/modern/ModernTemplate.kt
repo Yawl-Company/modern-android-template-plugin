@@ -10,11 +10,14 @@ class ModernTemplate(
     moduleData: ModuleTemplateData,
     private val hilt: Boolean,
     private val room: Boolean,
+    private val retrofit: Boolean,
     private val gradleSecrets: Boolean
 ) : AbstractAndroidTemplate(moduleData), IModernTemplate {
     override fun hilt() = hilt
 
     override fun room() = room
+
+    override fun retrofit() = retrofit
 
     override fun gradleSecrets() = gradleSecrets
 
@@ -32,6 +35,8 @@ interface IModernTemplate : AndroidTemplate {
     fun hilt(): Boolean
 
     fun room(): Boolean
+
+    fun retrofit(): Boolean
 
     fun gradleSecrets(): Boolean
 }
