@@ -77,7 +77,7 @@ data class LibraryToml(
     }
 
     override fun alias(): String {
-        throw IllegalStateException("No alias for library")
+        return "libs.${name.alias()}"
     }
 }
 
