@@ -7,7 +7,7 @@ import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*
 
-fun RecipeExecutor.appModuleWriter(
+fun RecipeExecutor.setupAppModule(
     template: AndroidTemplate
 ) {
     appBuildGradleWriter(template = template)
