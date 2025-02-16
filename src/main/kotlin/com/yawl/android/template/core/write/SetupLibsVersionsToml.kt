@@ -4,7 +4,7 @@ import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.extension.saveFile
 
-fun RecipeExecutor.libsVersionsTomlWriter(
+fun RecipeExecutor.setupLibsVersionsToml(
     template: AndroidTemplate
 ) {
     val moduleName = "gradle"

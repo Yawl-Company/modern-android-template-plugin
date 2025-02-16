@@ -10,7 +10,7 @@ import com.yawl.android.template.modern.convention.kotlin.kotlinConventionWriter
 import com.yawl.android.template.modern.convention.signing.signingConventionWriter
 import com.yawl.android.template.modern.convention.test.testConventionWriter
 
-fun RecipeExecutor.conventionsWriter(
+fun RecipeExecutor.setupConventions(
     template: IModernTemplate
 ) {
     val moduleName = "build-logic"
