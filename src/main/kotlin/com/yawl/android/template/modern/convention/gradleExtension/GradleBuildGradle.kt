@@ -28,7 +28,7 @@ internal fun gradleBuildGradle(
                 }
             }
         }
-        """
+        """.trimIndent()
         else ""}
     """.trimIndent()
 }
