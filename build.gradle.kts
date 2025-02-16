@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.yawl"
-version = "1.2"
+version = "1.0"
 
 repositories {
     mavenCentral()
