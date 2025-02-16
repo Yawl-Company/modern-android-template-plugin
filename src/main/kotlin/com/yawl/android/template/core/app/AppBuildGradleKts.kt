@@ -1,4 +1,4 @@
-package com.yawl.android.template.core.gradle
+package com.yawl.android.template.core.app
 
 import com.yawl.android.template.core.extension.librariesDependencies
 import com.yawl.android.template.core.extension.pluginsSection

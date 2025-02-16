@@ -2,7 +2,7 @@ package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
-import com.yawl.android.template.core.gradle.buildAppBuildGradleKts
+import com.yawl.android.template.core.app.buildAppBuildGradleKts
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*

@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern.project
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.gradle.buildProjectSettingsGradleKts
+import com.yawl.android.template.core.project.buildProjectSettingsGradleKts
 import com.yawl.android.template.core.extension.pluginsSection
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.core.gradle.settingsGradleKts
