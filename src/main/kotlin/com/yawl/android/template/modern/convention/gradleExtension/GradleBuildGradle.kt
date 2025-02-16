@@ -25,16 +25,15 @@ internal fun gradleBuildGradle(
         """
         )
 
-        appendLine()
-
-        appendLine(
-            conventionPluginsRegistration(
-                listOfNotNull(
-                    template.gradleSecrets().takeIf { it }?.let {
-                        conventionGradleSecrets to "com.convention.GradleSecretsConventionPlugin"
-                    },
-                )
-            )
+        val plugins = listOfNotNull(
+            template.gradleSecrets().takeIf { it }?.let {
+                conventionGradleSecrets to "com.convention.GradleSecretsConventionPlugin"
+            },
         )
+
+        plugins.takeIf { it.isNotEmpty() }?.let {
+            appendLine()
+            appendLine(conventionPluginsRegistration(plugins))
+        }
     }
 }

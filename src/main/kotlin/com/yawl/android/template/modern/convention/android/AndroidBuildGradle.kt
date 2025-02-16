@@ -30,22 +30,21 @@ internal fun androidBuildGradle(
         """
         )
 
-        appendLine()
-
-        appendLine(
-            conventionPluginsRegistration(
-                listOfNotNull(
-                    conventionAndroidApplication to "com.convention.AndroidApplicationConventionPlugin",
-                    conventionAndroidLibrary to "com.convention.AndroidLibraryConventionPlugin",
-                    conventionAndroidCompose to "com.convention.compose.AndroidComposeConventionPlugin",
-                    template.hilt().takeIf { it }?.let {
-                        conventionAndroidHilt to "com.convention.compose.HiltConventionPlugin"
-                    },
-                    template.room().takeIf { it }?.let {
-                        conventionRoom to "com.convention.compose.AndroidRoomConventionPlugin"
-                    },
-                )
-            )
+        val plugins = listOfNotNull(
+            conventionAndroidApplication to "com.convention.AndroidApplicationConventionPlugin",
+            conventionAndroidLibrary to "com.convention.AndroidLibraryConventionPlugin",
+            conventionAndroidCompose to "com.convention.compose.AndroidComposeConventionPlugin",
+            template.hilt().takeIf { it }?.let {
+                conventionAndroidHilt to "com.convention.compose.HiltConventionPlugin"
+            },
+            template.room().takeIf { it }?.let {
+                conventionRoom to "com.convention.compose.AndroidRoomConventionPlugin"
+            },
         )
+
+        plugins.takeIf { it.isNotEmpty() }?.let {
+            appendLine()
+            appendLine(conventionPluginsRegistration(plugins))
+        }
     }
 }

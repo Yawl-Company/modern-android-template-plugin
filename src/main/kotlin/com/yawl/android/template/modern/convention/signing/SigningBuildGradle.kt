@@ -20,14 +20,13 @@ internal fun signingBuildGradle(): String {
         """
         )
 
-        appendLine()
-
-        appendLine(
-            conventionPluginsRegistration(
-                listOfNotNull(
-                    conventionSigning to "com.convention.AndroidApplicationSignConventionPlugin",
-                )
-            )
+        val plugins = listOfNotNull(
+            conventionSigning to "com.convention.AndroidApplicationSignConventionPlugin",
         )
+
+        plugins.takeIf { it.isNotEmpty() }?.let {
+            appendLine()
+            appendLine(conventionPluginsRegistration(plugins))
+        }
     }
 }

@@ -22,15 +22,14 @@ internal fun testBuildGradle(): String {
         """
         )
 
-        appendLine()
-
-        appendLine(
-            conventionPluginsRegistration(
-                listOfNotNull(
-                    conventionAndroidUnitTest to "com.convention.AndroidUnitTestConventionPlugin",
-                    conventionAndroidUiTest to "com.convention.AndroidUiTestConventionPlugin",
-                )
-            )
+        val plugins = listOfNotNull(
+            conventionAndroidUnitTest to "com.convention.AndroidUnitTestConventionPlugin",
+            conventionAndroidUiTest to "com.convention.AndroidUiTestConventionPlugin",
         )
+
+        plugins.takeIf { it.isNotEmpty() }?.let {
+            appendLine()
+            appendLine(conventionPluginsRegistration(plugins))
+        }
     }
 }
