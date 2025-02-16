@@ -1,7 +1,7 @@
 package com.yawl.android.template.modern
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.write.setupLibsVersionsToml
+import com.yawl.android.template.core.project.setupLibsVersionsToml
 import com.yawl.android.template.modern.app.setupAppModule
 import com.yawl.android.template.modern.convention.setupConventions
 import com.yawl.android.template.modern.project.setupProject

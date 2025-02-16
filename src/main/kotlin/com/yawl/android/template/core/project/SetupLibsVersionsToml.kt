@@ -1,4 +1,4 @@
-package com.yawl.android.template.core.write
+package com.yawl.android.template.core.project
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
