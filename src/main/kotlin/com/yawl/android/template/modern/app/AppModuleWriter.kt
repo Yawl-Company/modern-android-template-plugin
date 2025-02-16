@@ -5,7 +5,7 @@ import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.buildAppBuildGradleKts
 import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.modern.app.content.mainActivity
-import com.yawl.android.template.modern.dependencies.toml.pConventionAndroidApplication
+import com.yawl.android.template.modern.dependencies.toml.*
 
 fun RecipeExecutor.appModuleWriter(
     template: AndroidTemplate
@@ -26,9 +26,16 @@ fun RecipeExecutor.appBuildGradleWriter(
                 .packageName(),
             plugins = listOf(
                 pConventionAndroidApplication,
+                pConventionAndroidCompose,
+                pConventionAndroidUnitTest,
+                pConventionAndroidUiTest,
+                pConventionSigning
             ),
             dependencies = listOf(
-
+                lLifecycleRuntimeKtxToml,
+                lActivityComposeToml,
+                lComposeUiToml,
+                lComposeUiGraphicsToml
             )
         ),
         force = true
