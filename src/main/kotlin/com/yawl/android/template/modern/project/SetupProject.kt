@@ -1,10 +1,10 @@
 package com.yawl.android.template.modern.project
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.buildProjectSettingsGradleKts
+import com.yawl.android.template.core.gradle.buildProjectSettingsGradleKts
 import com.yawl.android.template.core.extension.pluginsSection
-import com.yawl.android.template.core.write.buildGradleKtsWriter
-import com.yawl.android.template.core.write.settingsGradleKtsWriter
+import com.yawl.android.template.core.gradle.buildGradleKts
+import com.yawl.android.template.core.gradle.settingsGradleKts
 import com.yawl.android.template.modern.IModernTemplate
 
 fun RecipeExecutor.setupProject(
@@ -12,7 +12,7 @@ fun RecipeExecutor.setupProject(
 ) {
     val root = template
         .projectRoot()
-    buildGradleKtsWriter(
+    buildGradleKts(
         directory = root,
         content = template
             .libraries()
@@ -20,7 +20,7 @@ fun RecipeExecutor.setupProject(
             .pluginsSection(apply = false),
         force = true
     )
-    settingsGradleKtsWriter(
+    settingsGradleKts(
         directory = root,
         content = buildProjectSettingsGradleKts(
             projectName = template.projectName(),

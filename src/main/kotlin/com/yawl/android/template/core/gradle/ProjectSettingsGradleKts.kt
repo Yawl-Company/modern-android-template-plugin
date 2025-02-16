@@ -1,4 +1,4 @@
-package com.yawl.android.template.core
+package com.yawl.android.template.core.gradle
 
 fun buildProjectSettingsGradleKts(
     suppressUnstableApiUsage: Boolean,

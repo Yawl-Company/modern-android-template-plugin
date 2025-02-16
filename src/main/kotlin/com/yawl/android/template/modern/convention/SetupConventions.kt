@@ -1,8 +1,8 @@
 package com.yawl.android.template.modern.convention
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import com.yawl.android.template.core.write.buildGradleKtsWriter
-import com.yawl.android.template.core.write.settingsGradleKtsWriter
+import com.yawl.android.template.core.gradle.buildGradleKts
+import com.yawl.android.template.core.gradle.settingsGradleKts
 import com.yawl.android.template.modern.IModernTemplate
 import com.yawl.android.template.modern.convention.android.androidConventionWriter
 import com.yawl.android.template.modern.convention.gradleExtension.gradleConventionWriter
@@ -17,12 +17,12 @@ fun RecipeExecutor.setupConventions(
     val directory = template
         .projectRoot()
         .resolve(moduleName)
-    settingsGradleKtsWriter(
+    settingsGradleKts(
         directory = directory,
         content = settingsGradle(),
         force = false
     )
-    buildGradleKtsWriter(
+    buildGradleKts(
         directory = directory,
         content = buildGradle(),
         force = false

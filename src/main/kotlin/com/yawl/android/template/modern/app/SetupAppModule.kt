@@ -2,8 +2,8 @@ package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
-import com.yawl.android.template.core.buildAppBuildGradleKts
-import com.yawl.android.template.core.write.buildGradleKtsWriter
+import com.yawl.android.template.core.gradle.buildAppBuildGradleKts
+import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*
 
@@ -17,7 +17,7 @@ fun RecipeExecutor.setupAppModule(
 fun RecipeExecutor.appBuildGradleWriter(
     template: AndroidTemplate,
 ) {
-    buildGradleKtsWriter(
+    buildGradleKts(
         directory = template
             .projectRoot()
             .resolve("app"),
