@@ -17,8 +17,8 @@ internal fun gradleBuildGradle(
             compileOnly(gradleApi())
             // workaround for https://github.com/gradle/gradle/issues/15383
             api(files((libs as Any).javaClass.superclass.protectionDomain.codeSource.location))
-        }
-        ${if (template.gradleSecrets()) "\n" +
+        }${
+        if (template.gradleSecrets()) "\n" +
         """
         gradlePlugin {
             plugins {
@@ -28,7 +28,7 @@ internal fun gradleBuildGradle(
                 }
             }
         }
-        """.trimIndent()
+        """
         else ""}
     """.trimIndent()
 }

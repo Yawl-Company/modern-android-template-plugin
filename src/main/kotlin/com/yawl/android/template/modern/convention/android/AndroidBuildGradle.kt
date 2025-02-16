@@ -43,15 +43,15 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
                     id = "convention.hilt"
                     implementationClass = "com.convention.HiltConventionPlugin"
                 }
-                """.trimIndent() +
+                """ 
+                else "" +
                 if (template.room()) "\n" +
-                        """
-                    create("room") {
-                        id = "convention.room"
-                        implementationClass = "com.convention.AndroidRoomConventionPlugin"
-                    }
-                    """.trimIndent()
-                else ""
+                """
+                create("room") {
+                    id = "convention.room"
+                    implementationClass = "com.convention.AndroidRoomConventionPlugin"
+                }
+                """ 
                 else ""}
             }
         }
