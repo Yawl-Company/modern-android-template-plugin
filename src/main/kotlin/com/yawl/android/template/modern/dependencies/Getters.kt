@@ -4,6 +4,7 @@ import com.yawl.android.template.core.libs.ConventionPluginToml
 import com.yawl.android.template.core.libs.LibraryToml
 import com.yawl.android.template.core.libs.PluginToml
 import com.yawl.android.template.core.libs.VersionToml
+import com.yawl.android.template.modern.dependencies.toml.*
 
 fun modernAndroidVersions(): List<VersionToml> {
     return listOf(

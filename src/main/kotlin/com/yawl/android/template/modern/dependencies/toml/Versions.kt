@@ -1,4 +1,4 @@
-package com.yawl.android.template.modern.dependencies
+package com.yawl.android.template.modern.dependencies.toml
 
 import com.yawl.android.template.core.libs.TomlName
 import com.yawl.android.template.core.libs.VersionToml
