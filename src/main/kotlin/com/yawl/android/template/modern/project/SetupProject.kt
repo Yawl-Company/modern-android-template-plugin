@@ -5,6 +5,7 @@ import com.yawl.android.template.core.project.buildProjectSettingsGradleKts
 import com.yawl.android.template.core.extension.pluginsSection
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.core.gradle.settingsGradleKts
+import com.yawl.android.template.core.project.gradleProperties
 import com.yawl.android.template.modern.IModernTemplate
 
 fun RecipeExecutor.setupProject(
@@ -29,5 +30,12 @@ fun RecipeExecutor.setupProject(
             includeBuild = true
         ),
         force = true
+    )
+    gradleProperties(
+        template = template,
+        caching = true,
+        parallel = true,
+        configureondemand = true,
+        configurationCache = true
     )
 }
