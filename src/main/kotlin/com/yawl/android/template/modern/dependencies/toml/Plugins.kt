@@ -3,7 +3,7 @@ package com.yawl.android.template.modern.dependencies.toml
 import com.yawl.android.template.core.libs.ConventionPluginToml
 import com.yawl.android.template.core.libs.TomlName
 import com.yawl.android.template.core.libs.PluginToml
-import com.yawl.android.template.core.libs.inuse.*
+import com.yawl.android.template.core.libs.usage.*
 
 val pAndroidApplicationPlugin = PluginToml(
     TomlName("android-application"),

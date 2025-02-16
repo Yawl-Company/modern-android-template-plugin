@@ -2,7 +2,7 @@ package com.yawl.android.template.modern.dependencies.toml
 
 import com.yawl.android.template.core.libs.LibraryToml
 import com.yawl.android.template.core.libs.TomlName
-import com.yawl.android.template.core.libs.inuse.*
+import com.yawl.android.template.core.libs.usage.*
 
 val lKotlinGradlePluginToml = LibraryToml(
     TomlName("kotlin-gradlePlugin"),

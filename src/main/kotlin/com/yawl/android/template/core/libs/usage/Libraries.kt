@@ -1,4 +1,4 @@
-package com.yawl.android.template.core.libs.inuse
+package com.yawl.android.template.core.libs.usage
 
 import com.yawl.android.template.core.libs.part.Library
 
