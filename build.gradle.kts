@@ -1,3 +1,5 @@
+import org.jetbrains.intellij.tasks.BuildSearchableOptionsTask
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.25"
@@ -31,7 +33,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("231")
-        untilBuild.set("241.*")
+        untilBuild.set("")
     }
 
     signPlugin {
@@ -43,4 +45,8 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+
+tasks.getByName<BuildSearchableOptionsTask>("buildSearchableOptions") {
+    enabled = false
 }

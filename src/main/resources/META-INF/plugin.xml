@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.yawl.ma-template</id>
+    <id>com.yawl.android.template</id>
 
     <name>Modern Android Template</name>
 
@@ -14,6 +14,6 @@
     <depends>com.intellij.modules.androidstudio</depends>
 
     <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
-        <wizardTemplateProvider implementation="com.yawl.matemplate.AndroidStudioTemplateProvider"/>
+        <wizardTemplateProvider implementation="com.yawl.android.template.AndroidStudioTemplateProvider"/>
     </extensions>
 </idea-plugin>

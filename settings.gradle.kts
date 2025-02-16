@@ -5,4 +5,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "ma-template"
+includeBuild("libraries")
+
+rootProject.name = "android-template"
