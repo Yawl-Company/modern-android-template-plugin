@@ -8,15 +8,15 @@ fun buildProjectSettingsGradleKts(
 ): String {
     return buildString {
         if (suppressUnstableApiUsage) {
-            appendLine("@file:Suppress(\"UnstableApiUsage\")")
-            appendLine()
+            appendLine("@file:Suppress(\"UnstableApiUsage\")\n")
         }
-        appendLine("rootProject.name = \"$projectName\"")
-        appendLine()
+
+        appendLine("rootProject.name = \"$projectName\"\n")
+
         if (enableTypesafeProjectAccessors) {
-            appendLine("enableFeaturePreview(\"TYPESAFE_PROJECT_ACCESSORS\")")
-            appendLine()
+            appendLine("enableFeaturePreview(\"TYPESAFE_PROJECT_ACCESSORS\")\n")
         }
+
         appendLine(
             """
             pluginManagement {
@@ -35,6 +35,7 @@ fun buildProjectSettingsGradleKts(
             """.trimIndent()
         )
         appendLine()
+
         appendLine(
             """
             dependencyResolutionManagement {
@@ -47,11 +48,11 @@ fun buildProjectSettingsGradleKts(
             """.trimIndent()
         )
         appendLine()
+
         if (includeBuild) {
-            appendLine("includeBuild(\"build-logic\")")
-            appendLine()
+            appendLine("includeBuild(\"build-logic\")\n")
         }
-        appendLine("include(\":app\")")
-        appendLine()
+
+        appendLine("include(\":app\")\n")
     }
 }
