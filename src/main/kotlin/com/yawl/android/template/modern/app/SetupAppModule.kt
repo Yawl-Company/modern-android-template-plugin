@@ -6,12 +6,32 @@ import com.yawl.android.template.core.app.buildAppBuildGradleKts
 import com.yawl.android.template.core.gradle.buildGradleKts
 import com.yawl.android.template.modern.app.content.mainActivity
 import com.yawl.android.template.modern.dependencies.toml.*
+import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
 
 fun RecipeExecutor.setupAppModule(
     template: AndroidTemplate
 ) {
-    setupAppBuildGradle(template = template)
-    setupAppMainActivity(template = template)
+    val activityName = "MainActivity"
+    val moduleData = template.template()
+    generateManifest(
+        moduleData = moduleData,
+        activityClass = activityName,
+        activityThemeName = moduleData
+            .themesData
+            .main
+            .name,
+        packageName = template.packageName(),
+        isLauncher = true,
+        hasNoActionBar = true,
+        generateActivityTitle = true
+    )
+    setupLauncherActivity(
+        template = template,
+        activityName = activityName
+    )
+    setupAppBuildGradle(
+        template = template
+    )
 }
 
 fun RecipeExecutor.setupAppBuildGradle(
@@ -42,12 +62,13 @@ fun RecipeExecutor.setupAppBuildGradle(
     )
 }
 
-fun RecipeExecutor.setupAppMainActivity(
-    template: AndroidTemplate
+fun RecipeExecutor.setupLauncherActivity(
+    template: AndroidTemplate,
+    activityName: String
 ) {
     val activityPath = template
         .sourcesRoot()
-        .resolve("MainActivity.kt")
+        .resolve("$activityName.kt")
     save(
         source = mainActivity(
             packageName = template
