@@ -48,7 +48,7 @@ data class PluginToml(
     private val name: TomlName,
     private val plugin: Plugin,
     private val version: VersionToml
-) : Declaratable, Aliasable {
+) : Declaratable, Aliasable, BuildGradleApply {
     override fun declaration(): String {
         val pluginName = name.name()
         val pluginDescription = "{ id = \"${plugin.id}\", version.ref = \"${version.name()}\" }"
@@ -57,6 +57,10 @@ data class PluginToml(
 
     override fun alias(): String {
         return "libs.plugins.${name.alias()}"
+    }
+
+    override fun apply(apply: Boolean): String {
+        return "alias(${alias()}) apply $apply"
     }
 }
 
@@ -120,4 +124,8 @@ interface Aliasable {
 
 interface Nameable {
     fun name(): String
+}
+
+interface BuildGradleApply {
+    fun apply(apply: Boolean): String
 }
