@@ -2,13 +2,13 @@ package com.yawl.android.template.core
 
 import com.yawl.android.template.core.extension.librariesDependencies
 import com.yawl.android.template.core.extension.pluginsSection
-import com.yawl.android.template.core.libs.LibraryToml
-import com.yawl.android.template.core.libs.PluginToml
+import com.yawl.android.template.core.libs.PluginBuildGradle
+import com.yawl.android.template.core.libs.LibraryBuildGradle
 
 fun buildAppBuildGradleKts(
     packageName: String,
-    plugins: List<PluginToml>,
-    dependencies: List<LibraryToml>
+    plugins: List<PluginBuildGradle>,
+    dependencies: List<LibraryBuildGradle>
 ): String {
     return buildString {
         plugins.pluginsSection(apply = true)

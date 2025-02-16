@@ -29,32 +29,9 @@ class LibsToml(
     }
 }
 
-data class ConventionPluginToml(
+abstract class AbstractPluginToml(
     private val name: TomlName,
-    private val plugin: Plugin
-) : Declaratable, Aliasable {
-    override fun declaration(): String {
-        val pluginName = name.name()
-        val pluginDescription = "{ id = \"${plugin.id}\", version = \"unspecified\" }"
-        return "$pluginName = $pluginDescription"
-    }
-
-    override fun alias(): String {
-        return "libs.plugins.${name.alias()}"
-    }
-}
-
-data class PluginToml(
-    private val name: TomlName,
-    private val plugin: Plugin,
-    private val version: VersionToml
-) : Declaratable, Aliasable, BuildGradleApply {
-    override fun declaration(): String {
-        val pluginName = name.name()
-        val pluginDescription = "{ id = \"${plugin.id}\", version.ref = \"${version.name()}\" }"
-        return "$pluginName = $pluginDescription"
-    }
-
+):  Declaratable, Aliasable, PluginBuildGradle {
     override fun alias(): String {
         return "libs.plugins.${name.alias()}"
     }
@@ -65,6 +42,29 @@ data class PluginToml(
         } else {
             "alias(${alias()}) apply false"
         }
+    }
+}
+
+data class ConventionPluginToml(
+    private val name: TomlName,
+    private val plugin: Plugin
+) : AbstractPluginToml(name = name) {
+    override fun declaration(): String {
+        val pluginName = name.name()
+        val pluginDescription = "{ id = \"${plugin.id}\", version = \"unspecified\" }"
+        return "$pluginName = $pluginDescription"
+    }
+}
+
+data class PluginToml(
+    private val name: TomlName,
+    private val plugin: Plugin,
+    private val version: VersionToml
+) : AbstractPluginToml(name = name) {
+    override fun declaration(): String {
+        val pluginName = name.name()
+        val pluginDescription = "{ id = \"${plugin.id}\", version.ref = \"${version.name()}\" }"
+        return "$pluginName = $pluginDescription"
     }
 }
 
@@ -134,7 +134,7 @@ interface Nameable {
     fun name(): String
 }
 
-interface BuildGradleApply {
+interface PluginBuildGradle {
     fun apply(apply: Boolean): String
 }
 

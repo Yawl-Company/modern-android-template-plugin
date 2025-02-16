@@ -2,9 +2,10 @@ package com.yawl.android.template.modern.app
 
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.yawl.android.template.core.AndroidTemplate
+import com.yawl.android.template.core.buildAppBuildGradleKts
 import com.yawl.android.template.core.write.buildGradleKtsWriter
 import com.yawl.android.template.modern.app.content.mainActivity
-import com.yawl.android.template.modern.app.content.appSrcBuildGradleKts
+import com.yawl.android.template.modern.dependencies.toml.pConventionAndroidApplication
 
 fun RecipeExecutor.appModuleWriter(
     template: AndroidTemplate
@@ -20,9 +21,15 @@ fun RecipeExecutor.appBuildGradleWriter(
         directory = template
             .projectRoot()
             .resolve("app"),
-        content = appSrcBuildGradleKts(
+        content = buildAppBuildGradleKts(
             packageName = template
-                .packageName()
+                .packageName(),
+            plugins = listOf(
+                pConventionAndroidApplication,
+            ),
+            dependencies = listOf(
+
+            )
         ),
         force = true
     )
