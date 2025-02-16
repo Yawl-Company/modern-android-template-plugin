@@ -12,12 +12,11 @@ fun RecipeExecutor.projectWriter(
 ) {
     val root = template
         .projectRoot()
-    val plugins = template
-        .libraries()
-        .plugins
     buildGradleKtsWriter(
         directory = root,
-        content = plugins
+        content = template
+            .libraries()
+            .plugins
             .projectGradle(),
         force = true
     )
