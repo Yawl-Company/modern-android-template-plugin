@@ -60,7 +60,11 @@ data class PluginToml(
     }
 
     override fun apply(apply: Boolean): String {
-        return "alias(${alias()}) apply $apply"
+        return if (apply) {
+            "alias(${alias()})"
+        } else {
+            "alias(${alias()}) apply false"
+        }
     }
 }
 
@@ -68,7 +72,7 @@ data class LibraryToml(
     private val name: TomlName,
     private val library: Library,
     private val version: VersionToml
-) : Declaratable, Aliasable {
+) : Declaratable, Aliasable, LibraryBuildGradle {
     override fun declaration(): String {
         val libraryName = name.name()
         val libraryDescription =
@@ -78,6 +82,10 @@ data class LibraryToml(
 
     override fun alias(): String {
         return "libs.${name.alias()}"
+    }
+
+    override fun implementation(): String {
+        return "implementation(${alias()})"
     }
 }
 
@@ -128,4 +136,8 @@ interface Nameable {
 
 interface BuildGradleApply {
     fun apply(apply: Boolean): String
+}
+
+interface LibraryBuildGradle {
+    fun implementation(): String
 }
