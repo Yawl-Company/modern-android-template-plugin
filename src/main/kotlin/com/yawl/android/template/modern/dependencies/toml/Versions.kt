@@ -76,17 +76,17 @@ val vActivityCompose = VersionToml(
 
 val vComposeBom = VersionToml(
     TomlName("compose-bom"),
-    Version("2025.01.01")
+    Version("2025.02.00")
 )
 
 val vAndroidxComposeCompiler = VersionToml(
     TomlName("androidxComposeCompiler"),
-    Version("1.5.12")
+    Version("1.7.8")
 )
 
 val vAndroidxComposeNavigation = VersionToml(
     TomlName("androidxComposeNavigation"),
-    Version("2.8.6")
+    Version("2.8.7")
 )
 
 val vCoreKtx = VersionToml(
