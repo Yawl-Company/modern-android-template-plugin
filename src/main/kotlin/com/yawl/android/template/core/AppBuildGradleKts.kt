@@ -11,7 +11,11 @@ fun buildAppBuildGradleKts(
     dependencies: List<LibraryBuildGradle>
 ): String {
     return buildString {
-        plugins.pluginsSection(apply = true)
+        appendLine(
+            plugins.pluginsSection(
+                apply = true
+            )
+        )
         appendLine()
 
         appendLine(
@@ -53,7 +57,9 @@ fun buildAppBuildGradleKts(
         )
         appendLine()
 
-        dependencies.librariesDependencies()
+        appendLine(
+            dependencies.librariesDependencies()
+        )
         appendLine()
     }
 }
