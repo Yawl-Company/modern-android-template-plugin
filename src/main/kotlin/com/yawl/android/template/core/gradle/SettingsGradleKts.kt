@@ -11,6 +11,7 @@ fun RecipeExecutor.settingsGradleKts(
     force: Boolean = false
 ) {
     val name = "settings.gradle.kts"
+    // remove groove settings.gradle if exist
     deleteFile(
         source = directory.resolve(
             name.substringBeforeLast('.')

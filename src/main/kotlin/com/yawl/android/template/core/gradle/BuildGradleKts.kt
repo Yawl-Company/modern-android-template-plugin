@@ -11,6 +11,7 @@ fun RecipeExecutor.buildGradleKts(
     force: Boolean = false
 ) {
     val name = "build.gradle.kts"
+    // remove groovy build.gradle if exist
     deleteFile(
         source = directory.resolve(
             name.substringBeforeLast('.')
