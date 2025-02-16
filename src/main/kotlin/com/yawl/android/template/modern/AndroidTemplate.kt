@@ -54,6 +54,8 @@ val modernAndroidTemplate
 
         widgets(
             PackageNameWidget(packageName),
+            LabelWidget("This template uses convention plugins for build logic and a TOML file for dependency management."),
+            LabelWidget("Enable or disable features as needed."),
             CheckBoxWidget(useHilt),
             CheckBoxWidget(useRoom),
             CheckBoxWidget(useRetrofit),
