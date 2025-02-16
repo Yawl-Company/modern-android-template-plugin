@@ -1,9 +1,15 @@
 package com.yawl.android.template.modern.convention.android
 
+import com.yawl.android.template.core.convention.conventionPluginsRegistration
+import com.yawl.android.template.core.libs.usage.*
 import com.yawl.android.template.modern.IModernTemplate
 
-internal fun androidBuildGradle(template: IModernTemplate): String {
-    return """
+internal fun androidBuildGradle(
+    template: IModernTemplate
+): String {
+    return buildString {
+        appendLine(
+            """
         plugins {
             kotlin("jvm")
             `java-gradle-plugin`
@@ -16,44 +22,30 @@ internal fun androidBuildGradle(template: IModernTemplate): String {
             implementation(projects.gradleExtension)
             implementation(libs.android.gradlePlugin)
             implementation(libs.ksp.gradlePlugin)${
-            if (template.room()) 
-            "implementation(libs.room.gradlePlugin)"
-            else ""}
-        }
-
-        gradlePlugin {
-            plugins {
-                create("android-lib") {
-                    id = "convention.kotlin-android-library"
-                    implementationClass = "com.convention.AndroidLibraryConventionPlugin"
-                }
-
-                create("android-app") {
-                    id = "convention.kotlin-android-app"
-                    implementationClass = "com.convention.AndroidApplicationConventionPlugin"
-                }
-
-                create("android-compose") {
-                    id = "convention.android-compose"
-                    implementationClass = "com.convention.compose.AndroidComposeConventionPlugin"
-                }${
-                if (template.hilt()) "\n" + 
-                """
-                create("hilt") {
-                    id = "convention.hilt"
-                    implementationClass = "com.convention.HiltConventionPlugin"
-                }
-                """ 
-                else "" +
                 if (template.room()) "\n" +
-                """
-                create("room") {
-                    id = "convention.room"
-                    implementationClass = "com.convention.AndroidRoomConventionPlugin"
-                }
-                """ 
-                else ""}
+                        "implementation(libs.room.gradlePlugin)"
+                else ""
             }
         }
-    """.trimIndent()
+        """
+        )
+
+        appendLine()
+
+        appendLine(
+            conventionPluginsRegistration(
+                listOfNotNull(
+                    conventionAndroidApplication to "com.convention.AndroidApplicationConventionPlugin",
+                    conventionAndroidLibrary to "com.convention.AndroidLibraryConventionPlugin",
+                    conventionAndroidCompose to "com.convention.compose.AndroidComposeConventionPlugin",
+                    template.hilt().takeIf { it }?.let {
+                        conventionAndroidHilt to "com.convention.compose.HiltConventionPlugin"
+                    },
+                    template.room().takeIf { it }?.let {
+                        conventionRoom to "com.convention.compose.AndroidRoomConventionPlugin"
+                    },
+                )
+            )
+        )
+    }
 }
