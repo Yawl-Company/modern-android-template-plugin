@@ -9,4 +9,7 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 intelliJ-gradlePlugin = { group = "org.jetbrains.intellij", name = "org.jetbrains.intellij.gradle.plugin", version.ref = "intelliJ" }
 
 [plugins]
+jetbrains-intellij = { id = "org.jetbrains.intellij", version.ref = "intelliJ" }
+
 convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
+convention-intellij = { id = "convention.intellij-plugin", version = "unspecified" }
