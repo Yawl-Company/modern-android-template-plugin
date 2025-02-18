@@ -15,3 +15,6 @@ out/
 
 ### Mac OS ###
 .DS_Store
+
+### Kotlin 2.0+ ###
+.kotlin
