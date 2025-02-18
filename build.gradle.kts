@@ -1,8 +1,7 @@
 import org.jetbrains.intellij.tasks.BuildSearchableOptionsTask
 
 plugins {
-    id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.25"
+    alias(libs.plugins.convention.kotlin.jvm)
     id("org.jetbrains.intellij") version "1.17.4"
 }
 
@@ -27,14 +26,6 @@ intellij {
 }
 
 tasks {
-    withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-    }
-
     patchPluginXml {
         sinceBuild.set("231")
         untilBuild.set("")

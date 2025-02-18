@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 
 include("gradle-extension")
 include("idea")
+include("kotlin")

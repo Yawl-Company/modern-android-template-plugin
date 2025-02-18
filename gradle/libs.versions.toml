@@ -1,5 +1,7 @@
 [versions]
+java = "17"
 kotlin = "2.1.0"
+kotlinLanguageVersion = "1.9"
 intelliJ = "1.17.4"
 
 [libraries]
@@ -7,3 +9,4 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 intelliJ-gradlePlugin = { group = "org.jetbrains.intellij", name = "org.jetbrains.intellij.gradle.plugin", version.ref = "intelliJ" }
 
 [plugins]
+convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
