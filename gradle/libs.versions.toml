@@ -1,0 +1,9 @@
+[versions]
+kotlin = "2.1.0"
+intelliJ = "1.17.4"
+
+[libraries]
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+intelliJ-gradlePlugin = { group = "org.jetbrains.intellij", name = "org.jetbrains.intellij.gradle.plugin", version.ref = "intelliJ" }
+
+[plugins]

@@ -5,6 +5,6 @@ pluginManagement {
     }
 }
 
-includeBuild("libraries")
+includeBuild("build-logic")
 
 rootProject.name = "android-template"
