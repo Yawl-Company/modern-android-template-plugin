@@ -3,12 +3,11 @@ package com.convention
 import com.convention.jvm.KotlinJvmPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.jetbrains.intellij.tasks.BuildSearchableOptionsTask
 import org.jetbrains.intellij.tasks.PatchPluginXmlTask
 import org.jetbrains.intellij.tasks.PublishPluginTask
 import org.jetbrains.intellij.tasks.SignPluginTask
 
-class IdeaPluginConventionPlugin : Plugin<Project> {
+class IdeaPluginBaseConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             plugins.apply(KotlinJvmPlugin::class.java)
@@ -38,12 +37,6 @@ class IdeaPluginConventionPlugin : Plugin<Project> {
             tasks.withType(PublishPluginTask::class.java).configureEach {
                 it.apply {
                     token.set(System.getenv("PUBLISH_TOKEN"))
-                }
-            }
-
-            tasks.withType(BuildSearchableOptionsTask::class.java).configureEach {
-                it.apply {
-                    enabled = false
                 }
             }
         }

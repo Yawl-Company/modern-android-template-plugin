@@ -14,4 +14,4 @@ intelliJ-gradlePlugin = { group = "org.jetbrains.intellij", name = "org.jetbrain
 jetbrains-intellij = { id = "org.jetbrains.intellij", version.ref = "intelliJ" }
 
 convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
-convention-intellij = { id = "convention.intellij-plugin", version = "unspecified" }
+convention-intellij-android = { id = "convention.intellij-android", version = "unspecified" }

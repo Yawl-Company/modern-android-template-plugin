@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.convention.intellij)
+    alias(libs.plugins.convention.intellij.android)
 }
 
 group = "com.yawl"
@@ -7,17 +7,4 @@ version = "1.0"
 
 repositories {
     mavenCentral()
-}
-
-intellij {
-    type.set("AI")
-    version.set("2023.1.1.26")
-
-    plugins.set(
-        listOf(
-            "android",
-            "java",
-            "Kotlin"
-        )
-    )
 }

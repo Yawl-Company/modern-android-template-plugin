@@ -15,9 +15,9 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("intellij-plugin") {
-            id = "convention.intellij-plugin"
-            implementationClass = "com.convention.IdeaPluginConventionPlugin"
+        create("intellij-android") {
+            id = "convention.intellij-android"
+            implementationClass = "com.convention.AndroidStudioPluginConventionPlugin"
         }
     }
 }
