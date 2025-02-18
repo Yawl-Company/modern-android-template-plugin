@@ -17,9 +17,7 @@ intellij {
     type.set("AI")
     version.set("2023.1.1.26")
 
-    plugins.set(listOf(
-        "org.jetbrains.android"
-    ))
+    plugins.set(listOf("android", "java", "Kotlin"))
 }
 
 tasks {
