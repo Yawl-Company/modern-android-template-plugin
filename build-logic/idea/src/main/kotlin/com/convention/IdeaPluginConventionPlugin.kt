@@ -16,8 +16,14 @@ class IdeaPluginConventionPlugin : Plugin<Project> {
 
             tasks.withType(PatchPluginXmlTask::class.java).configureEach {
                 it.apply {
-                    sinceBuild.set("231")
-                    untilBuild.set("")
+                    sinceBuild.set(libs.versions.intelliJSinceBuild)
+                    untilBuild.set(
+                        libs.versions.intelliJUntilBuild
+                            .get()
+                            .takeIf { version ->
+                                version != "0"
+                            } ?: ""
+                    )
                 }
             }
 
