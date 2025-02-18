@@ -6,7 +6,7 @@
     <vendor>Yawl</vendor>
 
     <description><![CDATA[
-    <p>Modern Android App Template: Kickstart your development!</p>
+    <p>Modern Android App Template: Kickstart your development</p>
   ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
