@@ -1,7 +1,7 @@
 [versions]
 java = "17"
 kotlin = "2.1.0"
-kotlinLanguageVersion = "1.9"
+kotlinLanguageVersion = "2.0"
 intelliJ = "1.17.4"
 intelliJSinceBuild = "231"
 intelliJUntilBuild = "0"
