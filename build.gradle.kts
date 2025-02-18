@@ -1,5 +1,3 @@
-import org.jetbrains.intellij.tasks.BuildSearchableOptionsTask
-
 plugins {
     alias(libs.plugins.convention.intellij)
 }
@@ -22,8 +20,4 @@ intellij {
             "Kotlin"
         )
     )
-}
-
-tasks.getByName<BuildSearchableOptionsTask>("buildSearchableOptions") {
-    enabled = false
 }
