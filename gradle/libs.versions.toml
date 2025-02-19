@@ -2,7 +2,7 @@
 # build core
 java = "17"
 kotlin = "2.1.0"
-kotlinLanguageVersion = "2.0"
+kotlinLanguageVersion = "1.9"
 intelliJ = "1.17.4"
 
 # intelliJ
