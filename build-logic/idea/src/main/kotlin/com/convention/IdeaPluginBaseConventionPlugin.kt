@@ -2,21 +2,12 @@ package com.convention
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDependenciesExtension
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtension
 
 class IdeaPluginBaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             plugins.apply(libs.plugins.intelliJ.platform.get().pluginId)
-
-            dependencies.extensions
-                .configure(IntelliJPlatformDependenciesExtension::class.java) {
-                    it.apply {
-                        androidStudio(libs.versions.androidStudio)
-                        bundledPlugin("org.jetbrains.android")
-                    }
-                }
 
             extensions.configure(IntelliJPlatformExtension::class.java) {
                 it.apply {
@@ -47,8 +38,6 @@ class IdeaPluginBaseConventionPlugin : Plugin<Project> {
                             providers.environmentVariable("PUBLISH_TOKEN")
                         )
                     }
-
-                    buildSearchableOptions.set(false)
                 }
             }
         }
