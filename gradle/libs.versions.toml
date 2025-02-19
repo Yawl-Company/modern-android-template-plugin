@@ -1,12 +1,12 @@
 [versions]
 # build core
-java = "21"
+java = "17"
 kotlin = "2.1.0"
 kotlinLanguageVersion = "1.9"
 
 # intelliJ
 intelliJ = "1.17.4"
-intelliJPlatform = "2.2.2-SNAPSHOT"
+intelliJPlatform = "2.2.1"
 intelliJSinceBuild = "242"
 
 # android studio
