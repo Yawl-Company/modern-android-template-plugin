@@ -1,4 +1,5 @@
 plugins {
+    id("org.jetbrains.intellij.platform") version "2.2.2-SNAPSHOT"
     alias(libs.plugins.convention.intellij.android)
 }
 

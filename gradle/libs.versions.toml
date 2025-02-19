@@ -11,7 +11,7 @@ intelliJPlatform = "2.2.2-SNAPSHOT"
 intelliJSinceBuild = "241"
 
 # android studio
-androidStudio = "2024.1.2.13"
+androidStudio = "2024.2.2.13"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
