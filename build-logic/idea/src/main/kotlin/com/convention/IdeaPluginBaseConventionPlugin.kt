@@ -9,7 +9,7 @@ class IdeaPluginBaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             plugins.apply(KotlinJvmPlugin::class.java)
-//            plugins.apply(libs.plugins.intelliJ.platform.get().pluginId)
+            plugins.apply(libs.plugins.intelliJ.platform.get().pluginId)
 
             extensions.configure(IntelliJPlatformExtension::class.java) {
                 it.apply {

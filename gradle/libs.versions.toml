@@ -1,21 +1,20 @@
 [versions]
 # build core
-java = "17"
+java = "21"
 kotlin = "2.1.0"
 kotlinLanguageVersion = "1.9"
 
 # intelliJ
 intelliJ = "1.17.4"
-intelliJGradle = "2.2.1"
 intelliJPlatform = "2.2.2-SNAPSHOT"
-intelliJSinceBuild = "241"
+intelliJSinceBuild = "242"
 
 # android studio
 androidStudio = "2024.2.2.13"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-intelliJ-gradlePlugin = { group = "org.jetbrains.intellij.platform", name = "intellij-platform-gradle-plugin", version.ref = "intelliJGradle" }
+intelliJ-gradlePlugin = { group = "org.jetbrains.intellij.platform", name = "intellij-platform-gradle-plugin", version.ref = "intelliJPlatform" }
 
 [plugins]
 intelliJ-platform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
