@@ -33,9 +33,6 @@ fun RecipeExecutor.setupProject(
     )
     gradleProperties(
         template = template,
-        caching = true,
-        parallel = true,
-        configureondemand = true,
-        configurationCache = true
+        properties = template.gradleProperties()
     )
 }

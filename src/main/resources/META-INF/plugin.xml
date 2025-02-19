@@ -5,9 +5,10 @@
 
     <vendor>Yawl</vendor>
 
-    <description><![CDATA[
-    <p>Modern Android App Template: Kickstart your development!</p>
-  ]]></description>
+    <description>
+        The Modern Android Template plugin provides a streamlined way to create new Android projects with essential configurations and optimizations.
+        With a user-friendly wizard interface, this plugin helps developers quickly set up modern Android projects with best practices.
+    </description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>

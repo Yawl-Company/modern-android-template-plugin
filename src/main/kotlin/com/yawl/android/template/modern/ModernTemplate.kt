@@ -4,6 +4,7 @@ import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.yawl.android.template.core.AbstractAndroidTemplate
 import com.yawl.android.template.core.AndroidTemplate
 import com.yawl.android.template.core.libs.LibsToml
+import com.yawl.android.template.core.project.GradleProperties
 import com.yawl.android.template.modern.dependencies.*
 
 class ModernTemplate(
@@ -11,7 +12,8 @@ class ModernTemplate(
     private val hilt: Boolean,
     private val room: Boolean,
     private val retrofit: Boolean,
-    private val gradleSecrets: Boolean
+    private val gradleSecrets: Boolean,
+    private val gradleProperties: GradleProperties
 ) : AbstractAndroidTemplate(moduleData), IModernTemplate {
     override fun hilt() = hilt
 
@@ -21,14 +23,15 @@ class ModernTemplate(
 
     override fun gradleSecrets() = gradleSecrets
 
-    override fun libraries(): LibsToml {
-        return LibsToml(
-            versions = modernAndroidVersions(),
-            plugins = modernAndroidPlugins(),
-            libraries = modernAndroidLibraries(),
-            conventions = modernAndroidConventions()
-        )
-    }
+    override fun libraries() = LibsToml(
+        versions = modernAndroidVersions(),
+        plugins = modernAndroidPlugins(),
+        libraries = modernAndroidLibraries(),
+        conventions = modernAndroidConventions()
+    )
+
+    override fun gradleProperties() =
+        gradleProperties
 }
 
 interface IModernTemplate : AndroidTemplate {

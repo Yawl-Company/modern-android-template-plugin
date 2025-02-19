@@ -2,6 +2,7 @@ package com.yawl.android.template.core
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.yawl.android.template.core.libs.LibsToml
+import com.yawl.android.template.core.project.GradleProperties
 import java.io.File
 
 interface AndroidTemplate {
@@ -19,6 +20,8 @@ interface AndroidTemplate {
     fun sourcesRoot(): File
 
     fun resourcesRoot(): File
+
+    fun gradleProperties(): GradleProperties
 
 }
 
@@ -46,13 +49,4 @@ abstract class AbstractAndroidTemplate(
         .projectTemplateData
         .rootDir
         .name
-
-    override fun libraries(): LibsToml {
-        return LibsToml(
-            versions = emptyList(),
-            plugins = emptyList(),
-            libraries = emptyList(),
-            conventions = emptyList(),
-        )
-    }
 }

@@ -13,5 +13,11 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
+### IntelliJ Platform ###
+.intellijPlatform
+
 ### Mac OS ###
 .DS_Store
+
+### Kotlin 2.0+ ###
+.kotlin
