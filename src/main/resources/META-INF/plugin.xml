@@ -5,10 +5,6 @@
 
     <vendor>Yawl</vendor>
 
-    <description><![CDATA[
-    <p>Modern Android App Template: Kickstart your development</p>
-  ]]></description>
-
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
     <depends>com.intellij.modules.androidstudio</depends>
