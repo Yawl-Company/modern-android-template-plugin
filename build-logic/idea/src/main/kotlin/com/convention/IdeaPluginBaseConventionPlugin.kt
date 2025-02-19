@@ -10,12 +10,13 @@ class IdeaPluginBaseConventionPlugin : Plugin<Project> {
         with(target) {
             plugins.apply(libs.plugins.jetbrains.platform.get().pluginId)
 
-            dependencies.extensions.configure(IntelliJPlatformDependenciesExtension::class.java) {
-                it.apply {
-                    androidStudio("2024.1.2.13")
-                    bundledPlugin("org.jetbrains.android")
+            dependencies.extensions
+                .configure(IntelliJPlatformDependenciesExtension::class.java) {
+                    it.apply {
+                        androidStudio(libs.versions.androidStudio)
+                        bundledPlugin("org.jetbrains.android")
+                    }
                 }
-            }
 
             extensions.configure(IntelliJPlatformExtension::class.java) {
                 it.apply {
@@ -29,14 +30,22 @@ class IdeaPluginBaseConventionPlugin : Plugin<Project> {
                     }
 
                     signing.apply {
-                        certificateChain.set(providers.environmentVariable("CERTIFICATE_CHAIN"))
-                        privateKey.set(providers.environmentVariable("PRIVATE_KEY"))
-                        password.set(providers.environmentVariable("PRIVATE_KEY_PASSWORD"))
+                        certificateChain.set(
+                            providers.environmentVariable("CERTIFICATE_CHAIN")
+                        )
+                        privateKey.set(
+                            providers.environmentVariable("PRIVATE_KEY")
+                        )
+                        password.set(
+                            providers.environmentVariable("PRIVATE_KEY_PASSWORD")
+                        )
                     }
 
 
                     publishing.apply {
-                        token.set(providers.environmentVariable("PUBLISH_TOKEN"))
+                        token.set(
+                            providers.environmentVariable("PUBLISH_TOKEN")
+                        )
                     }
 
                     buildSearchableOptions.set(false)

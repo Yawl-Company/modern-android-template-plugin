@@ -4,10 +4,13 @@ java = "17"
 kotlin = "2.1.0"
 kotlinLanguageVersion = "2.0"
 intelliJ = "1.17.4"
-jetbrainsPlatform = "2.2.1"
 
-# intelliJ patch
+# intelliJ
+jetbrainsPlatform = "2.2.1"
 intelliJSinceBuild = "241"
+
+# android studio
+androidStudio = "2024.2.2.13"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
