@@ -22,7 +22,6 @@ dependencies {
     }
 }
 
-
 intellijPlatform {
     pluginConfiguration {
         version = libs.versions.intelliJ.get()
