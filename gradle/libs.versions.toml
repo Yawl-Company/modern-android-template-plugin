@@ -7,7 +7,7 @@ intelliJ = "1.17.4"
 jetbrainsPlatform = "2.2.1"
 
 # intelliJ patch
-intelliJSinceBuild = "231"
+intelliJSinceBuild = "241"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
