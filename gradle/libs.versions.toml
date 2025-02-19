@@ -7,10 +7,10 @@ kotlinLanguageVersion = "1.9"
 # intelliJ
 intelliJ = "1.17.4"
 intelliJPlatform = "2.2.1"
-intelliJSinceBuild = "242"
+intelliJSinceBuild = "232"
 
 # android studio
-androidStudio = "2024.2.2.13"
+androidStudio = "2024.1.2.13"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
