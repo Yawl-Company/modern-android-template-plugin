@@ -8,7 +8,7 @@ import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtensi
 class IdeaPluginBaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            plugins.apply(libs.plugins.jetbrains.platform.get().pluginId)
+            plugins.apply(libs.plugins.intelliJ.platform.get().pluginId)
 
             dependencies.extensions
                 .configure(IntelliJPlatformDependenciesExtension::class.java) {

@@ -3,22 +3,21 @@
 java = "17"
 kotlin = "2.1.0"
 kotlinLanguageVersion = "1.9"
-intelliJ = "1.17.4"
 
 # intelliJ
-jetbrainsPlatform = "2.2.1"
+intelliJ = "1.17.4"
+intelliJPlatform = "2.2.1"
 intelliJSinceBuild = "241"
 
 # android studio
-androidStudio = "2024.2.2.13"
+androidStudio = "2024.1.2.13"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-intelliJ-gradlePlugin = { group = "org.jetbrains.intellij.platform", name = "intellij-platform-gradle-plugin", version.ref = "jetbrainsPlatform" }
+intelliJ-gradlePlugin = { group = "org.jetbrains.intellij.platform", name = "intellij-platform-gradle-plugin", version.ref = "intelliJPlatform" }
 
 [plugins]
-jetbrains-platform = { id = "org.jetbrains.intellij.platform", version.ref = "jetbrainsPlatform" }
-jetbrains-intellij = { id = "org.jetbrains.intellij", version.ref = "intelliJ" }
+intelliJ-platform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
 
 convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
 convention-intellij-android = { id = "convention.intellij-android", version = "unspecified" }
