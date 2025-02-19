@@ -4,15 +4,17 @@ java = "17"
 kotlin = "2.1.0"
 kotlinLanguageVersion = "2.0"
 intelliJ = "1.17.4"
+jetbrainsPlatform = "2.2.1"
 
 # intelliJ patch
 intelliJSinceBuild = "231"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-intelliJ-gradlePlugin = { group = "org.jetbrains.intellij", name = "org.jetbrains.intellij.gradle.plugin", version.ref = "intelliJ" }
+intelliJ-gradlePlugin = { group = "org.jetbrains.intellij.platform", name = "intellij-platform-gradle-plugin", version.ref = "jetbrainsPlatform" }
 
 [plugins]
+jetbrains-platform = { id = "org.jetbrains.intellij.platform", version.ref = "jetbrainsPlatform" }
 jetbrains-intellij = { id = "org.jetbrains.intellij", version.ref = "intelliJ" }
 
 convention-kotlin-jvm = { id = "convention.kotlin-jvm", version = "unspecified" }
