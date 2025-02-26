@@ -35,10 +35,10 @@ internal fun androidBuildGradle(
             conventionAndroidLibrary to "com.convention.AndroidLibraryConventionPlugin",
             conventionAndroidCompose to "com.convention.compose.AndroidComposeConventionPlugin",
             template.hilt().takeIf { it }?.let {
-                conventionAndroidHilt to "com.convention.compose.HiltConventionPlugin"
+                conventionAndroidHilt to "com.convention.HiltConventionPlugin"
             },
             template.room().takeIf { it }?.let {
-                conventionRoom to "com.convention.compose.AndroidRoomConventionPlugin"
+                conventionRoom to "com.convention.AndroidRoomConventionPlugin"
             },
         )
 
