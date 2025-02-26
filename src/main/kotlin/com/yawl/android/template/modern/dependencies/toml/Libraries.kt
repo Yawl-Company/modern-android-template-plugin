@@ -205,7 +205,7 @@ val lDaggerHiltAndroidToml = LibraryToml(
 val lDaggerHiltCompilerToml = LibraryToml(
     TomlName("hilt-compiler"),
     hiltCompiler,
-    vHiltCompiler
+    vHilt
 )
 
 val lJavaxInjectToml = LibraryToml(
